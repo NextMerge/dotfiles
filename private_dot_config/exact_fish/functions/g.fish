@@ -1,5 +1,5 @@
 function g --description "Interactive git repository navigation with worktree support"
-    set -l pre_selected_repos '~/dotfiles' '~/.config/nvim'
+    set -l pre_selected_repos '~/.local/share/chezmoi'
 
     # Find regular git repos
     set -l regular_repos (rg --hidden --files --glob '**/.git/HEAD' --glob '!**/Arhive git/**' --max-depth 6 "$GITTER_DIR" | sed 's|.git/HEAD||' | string replace $GITTER_DIR/ '' | string trim -r -c/)
@@ -11,7 +11,7 @@ function g --description "Interactive git repository navigation with worktree su
     set -l all_repos $regular_repos $bare_repos $pre_selected_repos
 
     set -l selected_repo (
-        string join \n $all_repos | fzf --prompt="Select a directory: " --header="Press CTRL-D to go to gitter folder"
+        string join \n $all_repos | tv
     )
 
     set -l selected_repo_path

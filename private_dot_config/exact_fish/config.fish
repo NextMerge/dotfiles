@@ -23,6 +23,8 @@ abbr -a l 'eza -aF --icons --width=80'
 abbr -a tka 'tmux kill-server'
 abbr -a top topgrade
 abbr -a cz chezmoi
+abbr -a ca 'chezmoi apply'
+abbr -a cs 'chezmoi status'
 
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
