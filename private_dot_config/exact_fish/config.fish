@@ -34,12 +34,10 @@ fish_config theme choose "Catppuccin Mocha"
 # Generic color var for some programs (such as eza)
 set -gx LS_COLORS "$(vivid generate catppuccin-mocha)"
 
-### bat
 set -gx BAT_THEME "Catppuccin Mocha"
 # Use bat coloring for man pages
 set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
-### fzf
 set -gx FZF_DEFAULT_OPTS " \
     --info=inline \
     --border \
@@ -50,18 +48,17 @@ set -gx FZF_DEFAULT_OPTS " \
     --color=selected-bg:#45475a \
     --multi"
 
-# Keybindings
 fzf --fish | source
+
+tv init fish | source
 
 bind ctrl-. forward-token
 bind ctrl-comma backward-token
 
-### hydro
 set -gx hydro_multiline true
 set -gx hydro_symbol_start "\n"
 set -gx hydro_color_duration "yellow"
 set -gx hydro_color_pwd "cyan"
 set -gx hydro_color_git "purple"
 
-# zoxide
 zoxide init fish --cmd cd | source
