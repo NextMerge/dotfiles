@@ -1,0 +1,30 @@
+{
+    // General
+    "window.commandCenter": false,
+    "window.newWindowDimensions": "inherit",
+    "window.title": "${rootPath}${separator}",
+    "workbench.sideBar.location": "right",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontWeight": 300,
+    "editor.occurrencesHighlight": "off",
+    "editor.renderLineHighlight": "none",
+    "editor.accessibilitySupport": "off",
+    "editor.cursorSurroundingLines": 10,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 200,
+    "files.readonlyInclude": {
+        "**/node_modules/**": true,
+    },
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.layoutControl.enabled": false,
+    "terminal.external.osxExec": "Warp.app",
+    "terminal.integrated.fontSize": 18,
+    "extensions.ignoreRecommendations": true,
+
+    // Cursor
+    "cursor.composer.textSizeScale": 1.15,
+    "cursor.cpp.disabledLanguages": ["markdown"],
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "cursor.cpp.enablePartialAccepts": true,
+}

@@ -1,0 +1,175 @@
+{
+  "actions" : [
+    {
+      "actions" : [
+        {
+          "key" : "b",
+          "type" : "application",
+          "value" : "/Applications/Bear.app"
+        },
+        {
+          "key" : "c",
+          "type" : "application",
+          "value" : "/Applications/Cursor.app"
+        },
+        {
+          "key" : "f",
+          "type" : "application",
+          "value" : "/Applications/Fastmail.app"
+        },
+        {
+          "key" : "i",
+          "type" : "application",
+          "value" : "/System/Applications/FindMy.app"
+        },
+        {
+          "key" : "l",
+          "type" : "application",
+          "value" : "/Applications/Linear.app"
+        },
+        {
+          "key" : "m",
+          "type" : "application",
+          "value" : "/System/Applications/Music.app"
+        },
+        {
+          "key" : "n",
+          "type" : "application",
+          "value" : "/Applications/FoodNoms.app"
+        },
+        {
+          "key" : "p",
+          "type" : "application",
+          "value" : "/Applications/Play.app"
+        },
+        {
+          "key" : "s",
+          "type" : "application",
+          "value" : "/Applications/Slack.app"
+        },
+        {
+          "key" : "t",
+          "type" : "application",
+          "value" : "/Applications/Things3.app"
+        },
+        {
+          "key" : "v",
+          "type" : "application",
+          "value" : "/Applications/Vivaldi.app"
+        },
+        {
+          "key" : "w",
+          "type" : "application",
+          "value" : "/Applications/Warp.app"
+        },
+        {
+          "key" : "z",
+          "type" : "application",
+          "value" : "/Applications/Zed.app"
+        }
+      ],
+      "key" : "a",
+      "label" : "Applications",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "p",
+          "label" : "Set up Personal Layout",
+          "type" : "url",
+          "value" : "raycast://script-commands/become-personal"
+        },
+        {
+          "key" : "t",
+          "label" : "Bear Today",
+          "type" : "url",
+          "value" : "raycast://script-commands/bear-opentoday"
+        },
+        {
+          "key" : "w",
+          "label" : "Set up Work Layout",
+          "type" : "url",
+          "value" : "raycast://script-commands/become-work"
+        }
+      ],
+      "key" : "b",
+      "label" : "Layout",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "g",
+          "label" : "Spelling Check Selected Text",
+          "type" : "url",
+          "value" : "raycast://ai-commands/fix-spelling-and-grammar"
+        }
+      ],
+      "key" : "i",
+      "label" : "AI",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "b",
+          "label" : "Toggle Background Sounds",
+          "type" : "url",
+          "value" : "raycast://extensions/sebdanielsson/background-sounds/toggle"
+        },
+        {
+          "key" : "f",
+          "label" : "Toggle FlashSpace",
+          "type" : "url",
+          "value" : "raycast://script-commands/toggle-flashspace"
+        },
+        {
+          "key" : "m",
+          "label" : "Toggle Apple Music Play/Pause",
+          "type" : "url",
+          "value" : "raycast://extensions/fedevitaledev/music/toggle-play-pause"
+        },
+        {
+          "key" : "n",
+          "label" : "Toggle Raycast Notes",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/raycast-notes/raycast-notes"
+        }
+      ],
+      "key" : "t",
+      "label" : "Toggle",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "n",
+          "type" : "command",
+          "value" : "open -jga Play"
+        }
+      ],
+      "key" : "u",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "q",
+          "label" : "Sleep",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/system/sleep"
+        }
+      ],
+      "key" : "q",
+      "type" : "group"
+    },
+    {
+      "key" : ";",
+      "label" : "Search Menu Items",
+      "type" : "url",
+      "value" : "raycast://extensions/raycast/navigation/search-menu-items"
+    }
+  ],
+  "type" : "group"
+}

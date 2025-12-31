@@ -1,0 +1,25 @@
+[user]
+    name = Mark Jarjour
+    email = mj_git_signing@sent.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZjYSHyyoMDuB2UGKK2ZfoqNM+GSayV2dRwUz20Ul0P
+[core]
+    excludesfile = /Users/markjarjour/.gitignore_global
+    editor = nvim
+    autocrlf = input
+[commit]
+    gpgsign = true
+[push]
+    autoSetupRemote = true
+[pull]
+    rebase = true
+[rebase]
+    autoStash = true
+    updateRefs = true
+[fetch]
+    prune = true
+[init]
+    defaultBranch = main
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

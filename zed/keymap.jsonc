@@ -1,0 +1,219 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      //     "space space": "file_finder::Toggle"
+      "cmd-s": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Dock || Workspace",
+    "bindings": {
+      "ctrl-left": "workspace::ActivatePaneLeft",
+      "ctrl-right": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Workspace || (Editor && mode == full)",
+    "bindings": {
+      "cmd-e": "command_palette::Toggle",
+      "cmd-<": "zed::OpenKeymapFile"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-k": "menu::SelectPrevious",
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-d": "tab_switcher::CloseSelectedItem",
+      "ctrl-space": null,
+      "cmd-|": null // conflicts with switch window shortcut in macOS
+    }
+  },
+  {
+    "context": "Editor || Pane",
+    "bindings": {
+      "ctrl-h": ["pane::ActivateItem", 0],
+      "ctrl-t": ["pane::ActivateItem", 1],
+      "ctrl-n": ["pane::ActivateItem", 2],
+      "ctrl-s": ["pane::ActivateItem", 3],
+      "ctrl-shift-h": ["pane::ActivateItem", 4],
+      "ctrl-shift-t": ["pane::ActivateItem", 5],
+      "ctrl-shift-n": ["pane::ActivateItem", 6],
+      "ctrl-shift-s": ["pane::ActivateItem", 7]
+    }
+  },
+  {
+    "context": "Editor && !edit_prediction",
+    "bindings": {
+      "tab": "editor::ShowEditPrediction"
+    }
+  },
+  {
+    "context": "Editor && edit_prediction_conflict",
+    "bindings": {
+      // Here we bind tab to accept even when there's a language server completion
+      // or the cursor isn't at the correct indentation level
+      "tab": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-l": "tab_switcher::ToggleAll"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-f": ["workspace::SendKeystrokes", "ctrl-` shift-escape"]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-f": ["workspace::SendKeystrokes", "shift-escape cmd-j"]
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-u": [
+        "action::Sequence",
+        ["vim::ScrollUp", "editor::ScrollCursorCenter"]
+      ],
+      "ctrl-d": [
+        "action::Sequence",
+        ["vim::ScrollDown", "editor::ScrollCursorCenter"]
+      ],
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-t": "pane::ActivateNextItem",
+      "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
+      "space o x": ["task::Spawn", { "task_name": "Open in Cursor" }],
+      "space q q": "zed::Quit",
+      "space b o": "pane::CloseOtherItems",
+      "space b b": "editor::ToggleTabBar",
+      "space w q": "pane::CloseActiveItem",
+      "space m": "pane::TogglePinTab",
+      "space shift-m": "pane::UnpinAllTabs",
+      "space t": ["task::Spawn", { "task_name": "Open Terminal" }],
+      "space ,": "tab_switcher::ToggleAll",
+      "space f": "editor::Format",
+      "space i ,": ["workspace::SendKeystrokes", "$ a , ctrl-c"],
+      "[ t": "pane::SwapItemLeft",
+      "] t": "pane::SwapItemRight",
+      "q": null,
+      "~": "vim::FirstNonWhitespace",
+      "-": ["vim::PushJump", { "line": false }],
+      "_": null,
+      "enter": null
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "vim_mode == normal || EmptyPane",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "ctrl-shift-x": "vim::DeleteRight",
+      "ctrl-shift-alt-x": "vim::DeleteLeft",
+      "x": ["workspace::SendKeystrokes", "\" _ ctrl-shift-x"],
+      "shift-x": ["workspace::SendKeystrokes", "\" _ ctrl-shift-alt-x"],
+      "'": "editor::Format",
+      "s": "vim::PushSneak",
+      "shift-s": "vim::PushSneakBackward"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "ctrl-shift-w": "editor::WrapSelectionsInTag", // Bind here doesn't really matter can be anything.
+      "space s t": ["workspace::SendKeystrokes", "ctrl-shift-w v I"],
+      "shift-j": ["workspace::SendKeystrokes", "] e = g v"],
+      "shift-k": ["workspace::SendKeystrokes", "[ e = g v"],
+      "'": "editor::FormatSelections",
+      "space d t": [
+        "workspace::SendKeystrokes",
+        "d v a t \" _ d p ' [ v ] ' ="
+      ],
+      "enter": "editor::SelectLargerSyntaxNode",
+      "backspace": "editor::SelectSmallerSyntaxNode",
+      "shift-s": "vim::PushAddSurrounds"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {}
+  },
+  {
+    "context": "vim_operator == c",
+    "bindings": {
+      "r": "vim::PushReplaceWithRegister"
+    }
+  },
+  {
+    "context": "vim_operator == d",
+    "bindings": {
+      "shift-p": "git::RestoreFile",
+      "n i q": [
+        "workspace::SendKeystrokes",
+        "ctrl-c v a q ctrl-c : /[\"'`] enter v a q"
+      ],
+      "n a q": ["workspace::SendKeystrokes", "ctrl-c v a q ctrl-c v *"]
+    }
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      "q": "vim::MiniQuotes",
+      "b": "vim::MiniBrackets"
+    }
+  },
+  {
+    "context": "(vim_mode == normal || vim_mode == helix_normal) && !menu",
+    "bindings": {
+      "shift-u": "vim::Redo"
+    }
+  },
+  {
+    "context": "VimControl || !Editor && !Terminal",
+    "bindings": {
+      // window related commands (ctrl-w X)
+      "ctrl-w": null,
+      "ctrl-w ctrl-left": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
+      "ctrl-w ctrl-right": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ]
+    }
+  }
+]

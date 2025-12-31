@@ -1,0 +1,10 @@
+/* disable mute button on tab because when tab bar is shrunk it's too easy to hit */
+#browser:not(.alt-tabs) #tabs-container .tab-audio {
+  pointer-events: none;
+}
+
+/* make close button more prominent */
+.tab.tab-mini .close {
+  z-index: 2;
+  background-color: black;
+}

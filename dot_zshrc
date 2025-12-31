@@ -1,0 +1,17 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias pn=pnpm
+alias l='eza -aF --icons'
+
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_UPDATE_REPORT_NEW=1
+
+### fzf
+source <(fzf --zsh)
+
+# Specify which node version to use in fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+

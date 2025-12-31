@@ -1,0 +1,21 @@
+command = /opt/homebrew/bin/fish --login --interactive
+theme = catppuccin-mocha
+
+confirm-close-surface = false
+macos-option-as-alt = true
+copy-on-select = clipboard
+
+font-size = 18
+font-feature = -calt
+window-width = 120
+window-height = 1000
+window-padding-balance = true
+# for window transparency making text still look good
+alpha-blending = linear-corrected
+
+keybind = super+s=text:\x01S
+
+# map specific navigation keys manually because they have other mappings in ghostty
+# before others so the subsequent mappings show on the tab bar
+keybind = super+plus=goto_tab:1
+keybind = super+left_bracket=goto_tab:2

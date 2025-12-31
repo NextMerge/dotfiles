@@ -1,0 +1,3 @@
+[misc]
+pre_sudo = false
+disable = ["node", "pnpm", "bun", "bun_packages", "system", "git_repos", "vim", "pip3", "containers", "yarn", "gem", "ruby_gems"]
