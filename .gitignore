@@ -3,3 +3,12 @@ fish/**/fish_history
 fish/fish_variables
 fish/config.local.fish
 
+nvim/tt.*
+nvim/tests
+nvim/doc/tags
+nvim/debug
+nvim/repro
+nvim/foo.*
+nvim/*.log
+nvim/data
+
