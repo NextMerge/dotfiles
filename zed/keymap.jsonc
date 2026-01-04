@@ -153,14 +153,13 @@
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "ctrl-shift-w": "editor::WrapSelectionsInTag", // Bind here doesn't really matter can be anything.
-      "space s t": ["workspace::SendKeystrokes", "ctrl-shift-w v I"],
+      "space s t": ["action::Sequence", ["editor::WrapSelectionsInTag", "vim::InsertBefore"]],
       "shift-j": ["workspace::SendKeystrokes", "] e = g v"],
       "shift-k": ["workspace::SendKeystrokes", "[ e = g v"],
       "'": "editor::FormatSelections",
       "space d t": [
         "workspace::SendKeystrokes",
-        "d v a t \" _ d p ' [ v ] ' ="
+        "\" a d v a t \" _ d \" a p ' [ v ] ' ="
       ],
       "enter": "editor::SelectLargerSyntaxNode",
       "backspace": "editor::SelectSmallerSyntaxNode",

@@ -1,0 +1,5 @@
+fish/**/fishd.*
+fish/**/fish_history
+fish/fish_variables
+fish/config.local.fish
+

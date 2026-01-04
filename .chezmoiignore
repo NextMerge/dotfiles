@@ -8,11 +8,7 @@ zed/
 windows/
 vivaldi/
 vimium-c.json
-
-.config/fish/**/fishd.*
-.config/fish/**/fish_history
-.config/fish/fish_variables
-.config/fish/config.local.fish
+fish/
 
 .config/nvim/tt.*
 .config/nvim/tests
