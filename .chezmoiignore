@@ -11,3 +11,4 @@ vimium-c.json
 fish/
 nvim/
 .zed/
+tmux.conf
