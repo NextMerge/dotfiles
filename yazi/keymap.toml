@@ -1,0 +1,15 @@
+[mgr]
+prepend_keymap = [
+	{ on = "<Enter>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+	{ on = "<Backspace>", run = "leave", desc = "Back to the parent directory" },
+	{ on = "<C-c>", run = "escape", desc = "Exit visual mode, clear selection, or cancel search" },
+	{ on = "T", run = "forward", desc = "Forward to next directory" },
+	{ on = "t", run = "noop" },
+	{ on = [ "c", "g" ], run = ["plugin copy-file-contents"], desc = "Copy contents of file" },
+]
+
+[input]
+prepend_keymap = [
+	{ on = "<C-c>", run = "escape", desc = "Back to normal mode, or cancel input" },
+	{ on = "<Esc>", run = "close", desc = "Cancel input" },
+]
