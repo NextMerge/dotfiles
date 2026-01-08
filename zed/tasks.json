@@ -76,5 +76,14 @@
     "shell": {
       "program": "fish"
     }
+  },
+  {
+    "label": "Yazi File Finder",
+    "command": "yazi --chooser-file=/dev/stdout $ZED_RELATIVE_FILE | while read -l file; if test -n \"$file\"; zed \"$file\"; end; end",
+    "shell": {
+      "program": "fish"
+    },
+    "reveal_target": "center",
+    "hide": "on_success"
   }
 ]

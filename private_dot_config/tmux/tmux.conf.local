@@ -411,7 +411,7 @@ set -g mouse on
 bind x kill-pane
 
 # don't exit from tmux when closing a session
-set -g detach-on-destroy off
+# set -g detach-on-destroy off
 
 bind C-q kill-session
 

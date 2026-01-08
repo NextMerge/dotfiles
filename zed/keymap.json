@@ -79,15 +79,9 @@
     }
   },
   {
-    "context": "Workspace",
+    "context": "Workspace || Terminal",
     "bindings": {
-      "alt-f": ["workspace::SendKeystrokes", "ctrl-` shift-escape"]
-    }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "alt-f": ["workspace::SendKeystrokes", "shift-escape cmd-j"]
+      "alt-f": "terminal_panel::Toggle"
     }
   },
   {
@@ -135,7 +129,7 @@
     "context": "vim_mode == normal || EmptyPane",
     "bindings": {
       "space space": "file_finder::Toggle",
-      "space e": "project_panel::ToggleFocus"
+      "space e": ["task::Spawn", { "task_name": "Yazi File Finder"}]
     }
   },
   {
