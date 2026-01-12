@@ -91,11 +91,11 @@
         "action::Sequence",
         ["vim::ScrollUp", "editor::ScrollCursorCenter"]
       ],
-      "ctrl-d": [
-        "action::Sequence",
+      "ctrl-d": [ "action::Sequence",
         ["vim::ScrollDown", "editor::ScrollCursorCenter"]
       ],
       "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
       "shift-h": "pane::ActivatePreviousItem",
       "shift-t": "pane::ActivateNextItem",
       "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
@@ -120,16 +120,9 @@
     }
   },
   {
-    "context": "ProjectPanel && not_editing",
-    "bindings": {
-      "space e": "workspace::ToggleLeftDock"
-    }
-  },
-  {
     "context": "vim_mode == normal || EmptyPane",
     "bindings": {
       "space space": "file_finder::Toggle",
-      "space e": ["task::Spawn", { "task_name": "Yazi File Finder"}]
     }
   },
   {
@@ -141,7 +134,8 @@
       "shift-x": ["workspace::SendKeystrokes", "\" _ ctrl-shift-alt-x"],
       "'": "editor::Format",
       "s": "vim::PushSneak",
-      "shift-s": "vim::PushSneakBackward"
+      "shift-s": "vim::PushSneakBackward",
+      "space e": ["task::Spawn", { "task_name": "Yazi File Finder"}]
     }
   },
   {

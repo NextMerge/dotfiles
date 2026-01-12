@@ -1,11 +1,13 @@
 [mgr]
 prepend_keymap = [
+  { on = "<Space>", run = "toggle", desc = "Toggle the current selection state" },
 	{ on = "<Enter>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 	{ on = "<Backspace>", run = "leave", desc = "Back to the parent directory" },
 	{ on = "<C-c>", run = "escape", desc = "Exit visual mode, clear selection, or cancel search" },
 	{ on = "T", run = "forward", desc = "Forward to next directory" },
 	{ on = "t", run = "noop" },
 	{ on = [ "c", "g" ], run = ["plugin copy-file-contents"], desc = "Copy contents of file" },
+	{ on = ["g", "r"], run = "plugin cd-git-root", desc = "Go to git repo root" },
 ]
 
 [input]
