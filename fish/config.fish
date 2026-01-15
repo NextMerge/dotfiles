@@ -19,6 +19,8 @@ abbr -a pn pnpm
 abbr -a por pnpm --filter portal
 abbr -a som pnpm --filter sombra
 abbr -a leg pnpm --filter lego
+abbr -a porci pnpm --filter portal run generate:gql && pnpm --filter portal exec eslint --quiet . && pnpm --filter portal run build
+abbr -a somci pnpm --filter sombra run generate:gql && pnpm --filter sombra exec eslint --quiet . && pnpm --filter sombra run build
 abbr -a l 'eza -aF --icons --width=80'
 abbr -a tka 'tmux kill-server'
 abbr -a top topgrade

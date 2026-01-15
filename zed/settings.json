@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "which_key": {
+    "delay_ms": 100,
+    "enabled": true
+  },
   "indent_guides": {
     "background_coloring": "disabled",
     "coloring": "indent_aware"

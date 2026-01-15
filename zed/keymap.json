@@ -98,6 +98,7 @@
       "ctrl-k": "workspace::ActivatePaneUp",
       "shift-h": "pane::ActivatePreviousItem",
       "shift-t": "pane::ActivateNextItem",
+      "space": null,
       "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
       "space o x": ["task::Spawn", { "task_name": "Open in Cursor" }],
       "space q q": "zed::Quit",
