@@ -100,7 +100,7 @@
       "shift-t": "pane::ActivateNextItem",
       "space": null,
       "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
-      "space o x": ["task::Spawn", { "task_name": "Open in Cursor" }],
+      "space o c": ["task::Spawn", { "task_name": "Open in Cursor" }],
       "space q q": "zed::Quit",
       "space b o": "pane::CloseOtherItems",
       "space b b": "editor::ToggleTabBar",

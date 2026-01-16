@@ -50,7 +50,7 @@ _G.smart_delete = function()
 end
 vim.keymap.set('n', 'dd', smart_delete_init, { expr = true })
 
-vim.keymap.set({ 'n', 'x' }, '<leader>ox', function()
+vim.keymap.set({ 'n', 'x' }, '<leader>oc', function()
   local r, c = unpack(vim.api.nvim_win_get_cursor(0))
   local escaped_path = vim.fn.shellescape(vim.fn.expand('%:p'))
   vim.cmd(string.format(
@@ -60,7 +60,7 @@ vim.keymap.set({ 'n', 'x' }, '<leader>ox', function()
     r,
     c + 1 -- Add 1 to convert from 0-indexed to 1-indexed
   ))
-end, { desc = 'Open External editor' })
+end, { desc = '[O]pen in [C]ursor' })
 
 local function fast_quit()
   -- Check if we're in a file (not in a directory or empty buffer)
