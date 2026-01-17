@@ -313,9 +313,13 @@ Delete::Enter
 ~*Space:: ResetTypingModeTimer()
 #HotIf
 
-^+!g:: ToggleKeySwaps()
-^+!q:: ToggleQWERTY()
-^+!r:: Reload()
-^+!y:: CopyExeNameToClipboardAndOpenFile()
-^+!v:: CheckVpnStatus()
-^+!i:: TypeOutSanitizedTextInClipboard()
++#g:: ToggleKeySwaps()
++#q:: ToggleQWERTY()
++#r:: Reload()
++#y:: CopyExeNameToClipboardAndOpenFile()
++#v:: CheckVpnStatus()
++#i:: TypeOutSanitizedTextInClipboard()
+
+; Other mappings
+#b:: F23
+#f:: F24
