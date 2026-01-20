@@ -27,9 +27,6 @@ abbr -a cma 'chezmoi apply'
 abbr -a cms 'chezmoi status'
 abbr -a cmd 'chezmoi diff'
 
-alias porci='pnpm --filter portal run generate:gql && pnpm --filter portal exec eslint --quiet . && pnpm --filter portal run build'
-alias somci='pnpm --filter sombra run generate:gql && pnpm --filter sombra exec eslint --quiet . && pnpm --filter sombra run build'
-
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
 
