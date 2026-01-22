@@ -1,4 +1,4 @@
-function somci --description "Run CI pipeline for sombra: generate:gql, eslint, and build"
+function somci --description "Run CI pipeline for sombra: generate:gql, eslint, build, and build tests"
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  🚀 Sombra CI Pipeline"
@@ -6,7 +6,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     echo ""
     
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  📝 Stage 1/3: Generating GraphQL types..."
+    echo "  📝 Stage 1/4: Generating GraphQL types..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter sombra run generate:gql
@@ -18,7 +18,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔍 Stage 2/3: Running ESLint..."
+    echo "  🔍 Stage 2/4: Running ESLint..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter sombra exec eslint --quiet .
@@ -30,13 +30,25 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔨 Stage 3/3: Building..."
+    echo "  🔨 Stage 3/4: Building..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter sombra run build
     if test $status -ne 0
         echo ""
         echo "❌ Build failed!"
+        return 1
+    end
+    
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "  🧪 Stage 4/4: Building tests..."
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    pnpm --filter sombra run build-tests
+    if test $status -ne 0
+        echo ""
+        echo "❌ Test build failed!"
         return 1
     end
     
