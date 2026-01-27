@@ -55,9 +55,12 @@
   },
   {
     "label": "Open in Cursor",
-    "command": "cursor -r --folder-uri file://$ZED_WORKTREE_ROOT -g $ZED_RELATIVE_FILE:$ZED_ROW:$ZED_COLUMN",
+    "command": "set -l work_root '$ZED_WORKTREE_ROOT'; set -l relative_file '$ZED_RELATIVE_FILE'; cursor -r --folder-uri file://$work_root -g (string escape -- $relative_file):$ZED_ROW:$ZED_COLUMN",
     "reveal": "never",
-    "hide": "always"
+    "hide": "always",
+    "shell": {
+      "program": "fish"
+    }
   },
   {
     "label": "cmux",
@@ -79,7 +82,7 @@
   },
   {
     "label": "Yazi File Finder",
-    "command": "yazi --chooser-file=/dev/stdout $ZED_RELATIVE_FILE | while read -l file; if test -n \"$file\"; zed \"$file\"; end; end",
+    "command": "set -l f '$ZED_FILE'; yazi --chooser-file=/dev/stdout $f | while read -l file; if test -n \"$file\"; zed \"$file\"; end; end",
     "shell": {
       "program": "fish"
     },
