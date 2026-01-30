@@ -88,5 +88,14 @@
     },
     "reveal_target": "center",
     "hide": "on_success"
-  }
+  },
+  {
+      "label": "Launch Claude",
+      "command": "claude",
+      "shell": {
+        "program": "fish"
+      },
+      "reveal_target": "center",
+      "hide": "on_success"
+    }
 ]

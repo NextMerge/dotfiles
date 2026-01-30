@@ -92,7 +92,8 @@
         "action::Sequence",
         ["vim::ScrollUp", "editor::ScrollCursorCenter"]
       ],
-      "ctrl-d": [ "action::Sequence",
+      "ctrl-d": [
+        "action::Sequence",
         ["vim::ScrollDown", "editor::ScrollCursorCenter"]
       ],
       "ctrl-j": "workspace::ActivatePaneDown",
@@ -123,6 +124,7 @@
     "context": "vim_mode == normal || EmptyPane",
     "bindings": {
       "space space": "file_finder::Toggle",
+      "space c": ["task::Spawn", { "task_name": "Launch Claude" }]
     }
   },
   {
@@ -135,13 +137,16 @@
       "'": "editor::Format",
       "s": "vim::PushSneak",
       "shift-s": "vim::PushSneakBackward",
-      "space e": ["task::Spawn", { "task_name": "Yazi File Finder"}]
+      "space e": ["task::Spawn", { "task_name": "Yazi File Finder" }]
     }
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "space s t": ["action::Sequence", ["editor::WrapSelectionsInTag", "vim::InsertBefore"]],
+      "space s t": [
+        "action::Sequence",
+        ["editor::WrapSelectionsInTag", "vim::InsertBefore"]
+      ],
       "shift-j": ["workspace::SendKeystrokes", "] e = g v"],
       "shift-k": ["workspace::SendKeystrokes", "[ e = g v"],
       "'": "editor::FormatSelections",
