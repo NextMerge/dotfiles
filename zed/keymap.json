@@ -41,6 +41,7 @@
       "ctrl-k": "menu::SelectPrevious",
       "ctrl-j": "menu::SelectNext",
       "ctrl-d": "tab_switcher::CloseSelectedItem",
+      "cmd-t": "tab_switcher::ToggleAll",
       "ctrl-space": null,
       "cmd-|": null // conflicts with switch window shortcut in macOS
     }
@@ -96,8 +97,6 @@
       ],
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "shift-h": "pane::ActivatePreviousItem",
-      "shift-t": "pane::ActivateNextItem",
       "space": null,
       "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
       "space o c": ["task::Spawn", { "task_name": "Open in Cursor" }],
