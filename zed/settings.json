@@ -63,6 +63,7 @@
     }
   },
   "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true,
     "show": true
   },
   "file_types": {

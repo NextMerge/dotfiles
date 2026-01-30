@@ -27,4 +27,5 @@
     "cursor.cpp.disabledLanguages": ["markdown"],
     "cursor.composer.shouldChimeAfterChatFinishes": true,
     "cursor.cpp.enablePartialAccepts": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
 }
