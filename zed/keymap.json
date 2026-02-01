@@ -7,6 +7,12 @@
 // from the command palette.
 [
   {
+    "bindings": {
+      // "cmd-o": null,
+      // "cmd-h": null
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
       //     "space space": "file_finder::Toggle"
@@ -41,14 +47,11 @@
       "ctrl-k": "menu::SelectPrevious",
       "ctrl-j": "menu::SelectNext",
       "ctrl-d": "tab_switcher::CloseSelectedItem",
-      "cmd-t": "tab_switcher::ToggleAll",
       "ctrl-space": null,
-      "cmd-|": null // conflicts with switch window shortcut in macOS
-    }
-  },
-  {
-    "context": "Editor || Pane",
-    "bindings": {
+      "cmd-|": null, // conflicts with switch window shortcut in macOS
+      "cmd-u": "tab_switcher::Toggle",
+      "alt-c": ["task::Spawn", { "task_name": "zmux - Claude"}],
+      "alt-o": ["task::Spawn", { "task_name": "zmux - Opencode"}],
       "ctrl-h": ["pane::ActivateItem", 0],
       "ctrl-t": ["pane::ActivateItem", 1],
       "ctrl-n": ["pane::ActivateItem", 2],
@@ -75,14 +78,13 @@
   },
   {
     "context": "Terminal",
-    "bindings": {
-      "cmd-l": "tab_switcher::ToggleAll"
-    }
+    "bindings": {}
   },
   {
     "context": "Workspace || Terminal",
     "bindings": {
-      "alt-f": "terminal_panel::Toggle"
+      "alt-f": "terminal_panel::Toggle",
+      "cmd-u": "tab_switcher::Toggle"
     }
   },
   {

@@ -90,12 +90,21 @@
     "hide": "on_success"
   },
   {
-      "label": "Launch Claude",
-      "command": "claude",
-      "shell": {
-        "program": "fish"
-      },
-      "reveal_target": "center",
-      "hide": "on_success"
-    }
+    "label": "zmux - Claude",
+    "command": "set -l f '$ZED_FILE'; set -l w '$ZED_WORKTREE_ROOT'; zmux $w $f claude",
+    "shell": {
+      "program": "fish"
+    },
+    "reveal_target": "center",
+    "hide": "on_success"
+  },
+  {
+    "label": "zmux - Opencode",
+    "command": "set -l f '$ZED_FILE'; set -l w '$ZED_WORKTREE_ROOT'; zmux $w $f opencode",
+    "shell": {
+      "program": "fish"
+    },
+    "reveal_target": "center",
+    "hide": "on_success"
+  }
 ]

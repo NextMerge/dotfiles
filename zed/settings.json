@@ -112,5 +112,11 @@
         }
       ]
     }
+  },
+  "command_aliases": {
+    "rl": "editor::RestartLanguageServer",
+    "kv": "vim::OpenDefaultKeymap",
+    "kd": "dev::OpenKeyContextView" ,
+    "pt": "pane::TogglePinTab"
   }
 }
