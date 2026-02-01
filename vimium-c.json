@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "12/14/2025, 5:05:47 PM",
-	"time": 1765749947186,
+	"@time": "2/1/2026, 6:24:59 PM",
+	"time": 1769988299540,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "mac",
-		"chromium": 142
+		"chromium": 144
 	},
 	"autoDarkMode": 1,
 	"exclusionRules": [
@@ -85,8 +85,6 @@
 		"map <c-t> firstTab count=2",
 		"map <c-n> firstTab count=3",
 		"map <c-s> firstTab count=4",
-		"map H firstTab",
-		"map T lastTab",
 		"",
 		"map f LinkHints.activate",
 		"map F LinkHints.activateOpenInNewTab",

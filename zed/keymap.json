@@ -101,7 +101,6 @@
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
       "space": null,
-      "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
       "space o c": ["task::Spawn", { "task_name": "Open in Cursor" }],
       "space q q": "zed::Quit",
       "space b o": "pane::CloseOtherItems",
@@ -126,7 +125,7 @@
     "context": "vim_mode == normal || EmptyPane",
     "bindings": {
       "space space": "file_finder::Toggle",
-      "space c": ["task::Spawn", { "task_name": "Launch Claude" }]
+      "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
     }
   },
   {
