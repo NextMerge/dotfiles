@@ -15,7 +15,6 @@
   {
     "context": "Workspace",
     "bindings": {
-      //     "space space": "file_finder::Toggle"
       "cmd-s": "projects::OpenRecent"
     }
   },
@@ -46,12 +45,12 @@
     "bindings": {
       "ctrl-k": "menu::SelectPrevious",
       "ctrl-j": "menu::SelectNext",
-      "ctrl-d": "tab_switcher::CloseSelectedItem",
       "ctrl-space": null,
       "cmd-|": null, // conflicts with switch window shortcut in macOS
       "cmd-u": "tab_switcher::Toggle",
-      "alt-c": ["task::Spawn", { "task_name": "zmux - Claude"}],
-      "alt-o": ["task::Spawn", { "task_name": "zmux - Opencode"}],
+      "cmd-shift-u": "tab_switcher::ToggleAll",
+      "alt-c": ["task::Spawn", { "task_name": "zmux - Claude" }],
+      "alt-o": ["task::Spawn", { "task_name": "zmux - Opencode" }],
       "ctrl-h": ["pane::ActivateItem", 0],
       "ctrl-t": ["pane::ActivateItem", 1],
       "ctrl-n": ["pane::ActivateItem", 2],
@@ -111,7 +110,6 @@
       "space t": ["task::Spawn", { "task_name": "Open Terminal" }],
       "space ,": "tab_switcher::ToggleAll",
       "space f": "editor::Format",
-      "space i ,": ["workspace::SendKeystrokes", "$ a , ctrl-c"],
       "[ t": "pane::SwapItemLeft",
       "] t": "pane::SwapItemRight",
       "q": null,
@@ -125,7 +123,7 @@
     "context": "vim_mode == normal || EmptyPane",
     "bindings": {
       "space space": "file_finder::Toggle",
-      "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }],
+      "space g g ": ["task::Spawn", { "task_name": "Open Lazygit" }]
     }
   },
   {

@@ -28,4 +28,5 @@
     "cursor.composer.shouldChimeAfterChatFinishes": true,
     "cursor.cpp.enablePartialAccepts": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "claudeCode.preferredLocation": "panel",
 }
