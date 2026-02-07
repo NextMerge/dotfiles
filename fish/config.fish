@@ -9,7 +9,6 @@ set -g fish_greeting ""
 
 set -gx EDITOR nvim
 set -gx GITTER_DIR "$HOME/gitter"
-set -gx ZMUX_TEMP_FILE "/tmp/zmux_file_name.txt"
 
 function multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)

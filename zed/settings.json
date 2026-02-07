@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "edit_predictions": {
-    "provider": "copilot"
+    "provider": "mercury"
   },
   "agent_servers": {
     "claude": {

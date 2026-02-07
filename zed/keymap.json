@@ -49,8 +49,6 @@
       "cmd-|": null, // conflicts with switch window shortcut in macOS
       "cmd-u": "tab_switcher::Toggle",
       "cmd-shift-u": "tab_switcher::ToggleAll",
-      "alt-c": ["task::Spawn", { "task_name": "zmux - Claude" }],
-      "alt-o": ["task::Spawn", { "task_name": "zmux - Opencode" }],
       "ctrl-h": ["pane::ActivateItem", 0],
       "ctrl-t": ["pane::ActivateItem", 1],
       "ctrl-n": ["pane::ActivateItem", 2],
