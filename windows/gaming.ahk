@@ -196,15 +196,6 @@ TypeText(text) {
     Send(text)
 }
 
-OpenDiscord() {
-    if WinExist("ahk_exe discord.exe") {
-        WinActivate("ahk_exe discord.exe")
-    } else {
-        Run("C:\Users\markj\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk")
-        WinWait("ahk_exe discord.exe")
-    }
-}
-
 SetTimer(WarningOnVPNActive, 1000)
 
 #HotIf ShouldSwapKeys() && !typingMode
@@ -321,5 +312,8 @@ Delete::Enter
 +#i:: TypeOutSanitizedTextInClipboard()
 
 ; Other mappings
-#b:: F23
-#f:: F24
+#b:: #^b
+#f:: #^f
+#d:: #^!d
+#m:: #^!m
+#w:: #^w
