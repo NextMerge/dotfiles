@@ -311,9 +311,11 @@ Delete::Enter
 +#v:: CheckVpnStatus()
 +#i:: TypeOutSanitizedTextInClipboard()
 
-; Other mappings
+; Other mappin
+#HotIf !GetKeyState("Ctrl") && !GetKeyState("Alt") && !GetKeyState("Shift")
 #b:: #^b
 #f:: #^f
 #d:: #^!d
 #m:: #^!m
 #w:: #^w
+#HotIf
