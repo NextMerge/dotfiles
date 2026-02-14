@@ -11,6 +11,13 @@
     "provider": "mercury"
   },
   "agent_servers": {
+    "opencode": {
+      "favorite_models": [
+        "opencode/kimi-k2.5",
+        "opencode/kimi-k2.5-free"
+      ],
+      "type": "registry"
+    },
     "claude": {
       "default_model": "sonnet",
       "default_mode": "acceptEdits"

@@ -19,6 +19,7 @@ abbr -a pn pnpm
 abbr -a por pnpm --filter portal
 abbr -a som pnpm --filter sombra
 abbr -a leg pnpm --filter lego
+abbr -a pnf pnpm --filter
 abbr -a l 'eza -aF --icons --width=80'
 abbr -a tka 'tmux kill-server'
 abbr -a top topgrade

@@ -45,7 +45,7 @@ function porci --description "Run CI pipeline for portal: generate:gql, eslint, 
     echo "  🔨 Stage 4/4: Building..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-    pnpm --filter portal run build
+    pnpm --filter portal... run build
     if test $status -ne 0
         echo ""
         echo "❌ Build failed!"
