@@ -1,6 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 git:
   overrideGpg: true
 
 gui:
   nerdFontsVersion: "3"
   scrollHeight: 5
+
+os:
+  editPreset: zed
+  open: "zed {{filename}}"
