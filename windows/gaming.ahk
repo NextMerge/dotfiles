@@ -311,7 +311,6 @@ Delete::Enter
 +#v:: CheckVpnStatus()
 +#i:: TypeOutSanitizedTextInClipboard()
 
-; Other mappin
 #HotIf !GetKeyState("Ctrl") && !GetKeyState("Alt") && !GetKeyState("Shift")
 #b:: #^b
 #f:: #^f
@@ -319,3 +318,13 @@ Delete::Enter
 #m:: #^!m
 #w:: #^w
 #HotIf
+
+; Disable tapping Win key to open start menu https://www.autohotkey.com/docs/v2/lib/A_MenuMaskKey.htm#Remarks
+~LWin:: {
+    ; Only send the suppression sequence if the window is NOT Raycast
+    ; It interferes with setting hotkeys
+    if (!IsTargetExeActive(["Raycast"])) {
+        Send "{Blind}{vkE8}"
+    }
+    return
+}
