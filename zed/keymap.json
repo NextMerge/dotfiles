@@ -102,6 +102,8 @@
       "space q q": "zed::Quit",
       "space b o": "pane::CloseOtherItems",
       "space b b": "editor::ToggleTabBar",
+      "space b p": "pane::SwapItemLeft",
+      "space b n": "pane::SwapItemRight",
       "space w q": "pane::CloseActiveItem",
       "space m": "pane::TogglePinTab",
       "space shift-m": "pane::UnpinAllTabs",
