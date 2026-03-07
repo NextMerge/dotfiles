@@ -12,3 +12,7 @@ nvim/foo.*
 nvim/*.log
 nvim/data
 
+yazi/**
+!/yazi/keymap.toml
+!/yazi/init.lua
+!/yazi/yazi.toml
