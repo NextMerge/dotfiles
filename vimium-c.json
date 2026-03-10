@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "2/1/2026, 6:24:59 PM",
-	"time": 1769988299540,
+	"@time": "3/10/2026, 7:11:59 PM",
+	"time": 1773184319092,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "mac",
@@ -9,10 +9,6 @@
 	},
 	"autoDarkMode": 1,
 	"exclusionRules": [
-		{
-			"passKeys": "/ i m n q s v w ",
-			"pattern": ":https://kagi.com/"
-		},
 		{
 			"passKeys": "/ ",
 			"pattern": ":https://app.fastmail.com/"
@@ -122,8 +118,6 @@
 	"linkHintCharacters": "aoeuhtnsqjkmwvz",
 	"newTabUrl": "https://dot-blank-pink.vercel.app/",
 	"searchEngines": [
-		"kag: https://kagi.com/search?q=%s Kagi",
-		"",
 		"bi: https://www.bing.com/search?q=%s \\",
 		"  blank=https://www.bing.com/ Bing",
 		"g: https://www.google.com/search?q=%s \\",
@@ -154,7 +148,7 @@
 		"  blank=https://tvtropes.org/ TV Tropes",
 		""
 	],
-	"searchUrl": "https://kagi.com/search?q=$s Kagi",
+	"searchUrl": "https://duckduckgo.com/?q=$s DuckDuckGo",
 	"userDefinedCss": [
 		"/* #ui */",
 		"* {",

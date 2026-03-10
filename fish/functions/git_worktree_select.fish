@@ -11,7 +11,13 @@ function git_worktree_select --description "Git Worktree Select - Interactive wo
 
     set -l worktree_list_output (git -C "$git_dir" worktree list | grep -v "(bare)" | string collect)
     set -l formatted_worktrees (echo "$worktree_list_output" | awk '{print $1, substr($0, index($0,$3))}' | sed 's|.*/\([^/]*\) |\1 |')
-    set -l selected_worktree (string join \n $formatted_worktrees | gum filter --prompt="Select a worktree: " --header="Press ESC to cancel")
+    set -l selected_worktree
+
+    if test (count $formatted_worktrees) -lt 2
+        set selected_worktree $formatted_worktrees[1]
+    else
+        set selected_worktree (string join \n $formatted_worktrees | tv --input-prompt="Select a worktree" --select-1)
+    end
 
     if test -n "$selected_worktree"
         set -l just_selected_worktree (echo "$selected_worktree" | awk '{print $1}')
@@ -21,4 +27,3 @@ function git_worktree_select --description "Git Worktree Select - Interactive wo
     end
     return 1
 end
-
