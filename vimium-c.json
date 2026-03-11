@@ -110,8 +110,8 @@
 		"mapKey <B:n> <v-bStartPage>",
 		"",
 		"map s runKey expect={\"startPage\":\"<v-sStartPage>\"} keys=\"<v-s>\"",
-		"map <v-s> Vomnibar.activateHistoryInNewTab url=\"kagi.com/search\\u0020\"",
-		"map <v-sStartPage> Vomnibar.activateHistory url=\"kagi.com/search\\u0020\"",
+		"map <v-s> Vomnibar.activateHistoryInNewTab url=\"duckduckgo.com/?q=\\u0020\"",
+		"map <v-sStartPage> Vomnibar.activateHistory url=\"duckduckgo.com/?q=\\u0020\"",
 		"mapKey <S:n> <v-sStartPage>",
 		""
 	],

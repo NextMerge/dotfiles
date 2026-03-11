@@ -1,11 +1,11 @@
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Awake - 30 minutes
+# @raycast.title Awake - 4 hours
 # @raycast.mode silent
 
 # Optional parameters:
 # @raycast.icon ☕
-# @raycast.description Keep PC awake for 30 minutes
+# @raycast.description Keep PC awake for 4 hours
 
 # Documentation:
 # @raycast.author NextMerge
@@ -24,9 +24,10 @@ if (-not (Test-Path $AWAKE_EXE)) {
   exit 1
 }
 
-$minutes = 30
-$displayOn = "true"
+$minutes = 60 * 4
+$displayOn = "false"
 
 $timeLimitSeconds = $minutes * 60
 $args = @("--time-limit", $timeLimitSeconds, "--display-on", $displayOn)
 Start-Process -FilePath $AWAKE_EXE -ArgumentList $args
+
