@@ -1,6 +1,6 @@
 function cmux --description "Connect to existing cmux session or create new one with worktree selection"
     # Check if any tmux session matching "cmux/*" exists
-    set -l existing_sessions (tmux list-sessions 2>/dev/null | grep "^cmux/" | head -1)
+    set -l existing_sessions (tmux list-sessions 2>/dev/null | grep "^cmux" | head -1)
     
     if test -n "$existing_sessions"
         set -l session_name (echo "$existing_sessions" | cut -d: -f1)
