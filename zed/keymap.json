@@ -113,6 +113,7 @@
       "[ t": "pane::SwapItemLeft",
       "] t": "pane::SwapItemRight",
       "q": null,
+      "ctrl-q": "vim::ToggleRecord",
       "~": "vim::FirstNonWhitespace",
       "-": ["vim::PushJump", { "line": false }],
       "_": null,
