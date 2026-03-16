@@ -31,7 +31,7 @@ abbr -a cmd 'chezmoi diff'
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
 
-fish_config theme choose "Catppuccin Mocha"
+fish_config theme choose catppuccin-mocha
 
 # Generic color var for some programs (such as eza)
 set -gx LS_COLORS "$(vivid generate catppuccin-mocha)"

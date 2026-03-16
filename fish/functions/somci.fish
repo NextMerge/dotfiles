@@ -1,4 +1,4 @@
-function somci --description "Run CI pipeline for sombra: generate:gql, eslint, build, and build tests"
+function somci --description "Run CI pipeline for sombra: generate:gql, eslint, typecheck, build, and build tests"
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  🚀 Sombra CI Pipeline"
@@ -6,7 +6,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     echo ""
     
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  📝 Stage 1/4: Generating GraphQL types..."
+    echo "  📝 Stage 1/5: Generating GraphQL types..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter sombra run generate:gql
@@ -18,7 +18,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔍 Stage 2/4: Running ESLint..."
+    echo "  🔍 Stage 2/5: Running ESLint..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter sombra exec eslint --quiet .
@@ -30,7 +30,19 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔨 Stage 3/4: Building..."
+    echo "  📐 Stage 3/5: Running typecheck..."
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    pnpm --filter sombra run typecheck
+    if test $status -ne 0
+        echo ""
+        echo "❌ Typecheck failed!"
+        return 1
+    end
+    
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "  🔨 Stage 4/5: Building..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter sombra run build
@@ -42,7 +54,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🧪 Stage 4/4: Building tests..."
+    echo "  🧪 Stage 5/5: Building tests..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter sombra run build-tests
