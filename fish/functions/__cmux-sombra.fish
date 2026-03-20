@@ -67,7 +67,7 @@ function __cmux-sombra
         pnpm --filter sombra run generate:gql
     end
     
-    open "raycast://confetti"
+    open -g "raycast://confetti"
 
     pnpm --filter sombra run dev
 end
