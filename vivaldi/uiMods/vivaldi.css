@@ -10,6 +10,6 @@
 }
 
 /* hide text on update status toolbar button since the tab bar is small */
-div.toolbar button[name="UpdateButton"] .button-title {
+div.toolbar button[data-name="UpdateButton"] .button-title {
   display: none;
 }
