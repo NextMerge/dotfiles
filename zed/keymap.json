@@ -110,6 +110,7 @@
       "space t": ["task::Spawn", { "task_name": "Open Terminal" }],
       "space ,": "tab_switcher::ToggleAll",
       "space f": "editor::Format",
+      "space p": ["workspace::SendKeystrokes", "\" _ d P"],
       "[ t": "pane::SwapItemLeft",
       "] t": "pane::SwapItemRight",
       "q": null,

@@ -22,6 +22,15 @@
         }
       },
       "enable_lsp_tasks": true
+    },
+    "oxlint": {
+      "initialization_options": {
+        "settings": {
+          "run": "onType",
+          "fixKind": "safe_fix",
+          "unusedDisableDirectives": "deny"
+        }
+      }
     }
   },
   "edit_predictions": {
@@ -29,10 +38,7 @@
   },
   "agent_servers": {
     "opencode": {
-      "favorite_models": [
-        "opencode/kimi-k2.5",
-        "opencode/kimi-k2.5-free"
-      ],
+      "favorite_models": ["opencode/kimi-k2.5", "opencode/kimi-k2.5-free"],
       "type": "registry"
     }
   },
@@ -115,15 +121,15 @@
     "Shell Script": [".env-sample"]
   },
   "languages": {
-    "JavaScript": { "formatter": [{ "language_server": { "name": "biome" } }] },
+    "JavaScript": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
     "TypeScript": {
-      "formatter": [{ "language_server": { "name": "biome" } }]
+      "formatter": [{ "language_server": { "name": "oxfmt" } }]
     },
-    "TSX": { "formatter": [{ "language_server": { "name": "biome" } }] },
-    "JSON": { "formatter": [{ "language_server": { "name": "biome" } }] },
-    "JSONC": { "formatter": [{ "language_server": { "name": "biome" } }] },
-    "CSS": { "formatter": [{ "language_server": { "name": "biome" } }] },
-    "GraphQL": { "formatter": [{ "language_server": { "name": "biome" } }] },
+    "TSX": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
+    "JSON": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
+    "JSONC": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
+    "CSS": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
+    "GraphQL": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
     "Fish": {
       "formatter": [
         {
@@ -137,7 +143,7 @@
   "command_aliases": {
     "rl": "editor::RestartLanguageServer",
     "kv": "vim::OpenDefaultKeymap",
-    "kd": "dev::OpenKeyContextView" ,
+    "kd": "dev::OpenKeyContextView",
     "pt": "pane::TogglePinTab"
   }
 }

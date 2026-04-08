@@ -1,4 +1,4 @@
-function somci --description "Run CI pipeline for sombra: generate:gql, eslint, typecheck, build, and build tests"
+function somci --description "Run CI pipeline for sombra: generate:gql, oxlint, typecheck, build, and build tests"
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  🚀 Sombra CI Pipeline"
@@ -18,13 +18,13 @@ function somci --description "Run CI pipeline for sombra: generate:gql, eslint, 
     
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔍 Stage 2/5: Running ESLint..."
+    echo "  🔍 Stage 2/5: Running Oxlint..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-    pnpm --filter sombra exec eslint --quiet .
+    pnpm --filter sombra run lint --quiet
     if test $status -ne 0
         echo ""
-        echo "❌ ESLint check failed!"
+        echo "❌ Oxlint check failed!"
         return 1
     end
     
