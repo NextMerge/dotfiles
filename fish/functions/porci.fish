@@ -10,7 +10,7 @@ function porci --description "Run CI pipeline for portal: generate:gql, oxlint, 
     echo "  🔍 Stage 1/3: Running Oxlint..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-    pnpm --filter portal runt lint --quiet
+    pnpm --filter portal run lint --quiet
     if test $status -ne 0
         echo ""
         echo "❌ Oxlint check failed!"

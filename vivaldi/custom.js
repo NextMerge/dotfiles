@@ -1,4 +1,3 @@
-// biome-ignore lint/complexity/useArrowFunction: nah
 (function () {
   let timer = null;
 
