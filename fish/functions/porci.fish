@@ -7,7 +7,7 @@ function porci --description "Run CI pipeline for portal: generate:gql, oxlint, 
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔍 Stage 1/3: Running Oxlint..."
+    echo "  🔍 Stage 1/4: Running Oxlint..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter portal run lint --quiet
@@ -19,7 +19,19 @@ function porci --description "Run CI pipeline for portal: generate:gql, oxlint, 
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔎 Stage 2/3: Running TypeScript check..."
+    echo "  🔎 Stage 2/4: Running Spell-check..."
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    pnpm --filter portal run spell-check
+    if test $status -ne 0
+        echo ""
+        echo "❌ Spell-check failed!"
+        return 1
+    end
+
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "  ✏️  Stage 3/4: Running TypeScript check..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter portal run typecheck
@@ -31,7 +43,7 @@ function porci --description "Run CI pipeline for portal: generate:gql, oxlint, 
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🔨 Stage 3/3: Building..."
+    echo "  🔨 Stage 4/4: Building..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     pnpm --filter portal run build
