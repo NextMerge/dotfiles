@@ -37,14 +37,19 @@
     "provider": "mercury"
   },
   "agent_servers": {
+    "cursor": {
+      "favorite_config_option_values": {
+        "model": [
+          "composer-2[fast=true]",
+          "claude-opus-4-7[thinking=true,context=200k,effort=high]"
+        ]
+      },
+      "type": "registry"
+    },
     "opencode": {
       "favorite_models": ["opencode/kimi-k2.5", "opencode/kimi-k2.5-free"],
       "type": "registry"
     }
-  },
-  "title_bar": {
-    "show_menus": false,
-    "show_branch_icon": false
   },
   "debugger": {
     "button": false
@@ -87,7 +92,7 @@
     "calt": false
   },
   "buffer_font_size": 18,
-  "autosave": { "after_delay": { "milliseconds": 1000 } },
+  "autosave": "on_focus_change",
   "tabs": {
     "git_status": false,
     "file_icons": true
