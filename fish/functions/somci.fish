@@ -4,7 +4,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, oxlint, 
     echo "  🚀 Sombra CI Pipeline"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-    
+
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  📝 Stage 1/5: Generating GraphQL types..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -15,7 +15,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, oxlint, 
         echo "❌ GraphQL generation failed!"
         return 1
     end
-    
+
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  🔍 Stage 2/5: Running Oxlint..."
@@ -27,7 +27,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, oxlint, 
         echo "❌ Oxlint check failed!"
         return 1
     end
-    
+
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  📐 Stage 3/5: Running typecheck..."
@@ -39,7 +39,7 @@ function somci --description "Run CI pipeline for sombra: generate:gql, oxlint, 
         echo "❌ Typecheck failed!"
         return 1
     end
-    
+
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  🔨 Stage 4/5: Building..."
@@ -51,19 +51,19 @@ function somci --description "Run CI pipeline for sombra: generate:gql, oxlint, 
         echo "❌ Build failed!"
         return 1
     end
-    
+
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  🧪 Stage 5/5: Building tests..."
+    echo "  🧪 Stage 5/5: Typecheck tests..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-    pnpm --filter sombra run build-tests
+    pnpm --filter sombra run typecheck:tests
     if test $status -ne 0
         echo ""
         echo "❌ Test build failed!"
         return 1
     end
-    
+
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  ✅ Sombra CI Pipeline completed successfully!"
