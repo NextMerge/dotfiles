@@ -9,3 +9,24 @@ gui:
 os:
   editPreset: zed
   open: "zed {{filename}}"
+
+keybinding:
+  universal:
+    prevBlock-alt: "" # no-op to free 'h'
+    jumpToBlock:
+      - "1"
+      - "c"
+      - "h"
+      - "4"
+      - "5"
+  branches:
+    checkoutBranchByName: s
+  commits:
+    setFixupMessage: "" # no-op to free 's'
+
+customCommands:
+  - key: "G"
+    context: "localBranches"
+    description: "View MR on GitLab"
+    command: "glab mr view {{.SelectedLocalBranch.Name}} --web"
+    loadingText: "Opening MR..."
