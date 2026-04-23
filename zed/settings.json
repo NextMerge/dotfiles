@@ -127,11 +127,18 @@
     "Shell Script": [".env-sample"]
   },
   "languages": {
-    "JavaScript": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
-    "TypeScript": {
+    "JavaScript": {
+      "language_servers": ["tsgo", "tailwind-language-server", "oxlint", "oxfmt"],
       "formatter": [{ "language_server": { "name": "oxfmt" } }]
     },
-    "TSX": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
+    "TypeScript": {
+      "language_servers": ["tsgo", "tailwind-language-server", "oxlint", "oxfmt"],
+      "formatter": [{ "language_server": { "name": "oxfmt" } }]
+    },
+    "TSX": {
+      "language_servers": ["tsgo", "tailwind-language-server", "oxlint", "oxfmt"],
+      "formatter": [{ "language_server": { "name": "oxfmt" } }]
+    },
     "JSON": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
     "JSONC": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
     "CSS": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },
