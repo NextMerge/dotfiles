@@ -1,21 +1,17 @@
 {
 	"name": "Vimium C",
-	"@time": "3/14/2026, 6:37:37 PM",
-	"time": 1773527857446,
+	"@time": "4/27/2026, 11:45:24 AM",
+	"time": 1777304724672,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "mac",
-		"chromium": 144
+		"chromium": 146
 	},
 	"autoDarkMode": 1,
 	"exclusionRules": [
 		{
 			"passKeys": "/ ",
 			"pattern": ":https://app.fastmail.com/"
-		},
-		{
-			"passKeys": "",
-			"pattern": ":https://www.figma.com/"
 		},
 		{
 			"passKeys": "",
@@ -28,6 +24,14 @@
 		{
 			"passKeys": "",
 			"pattern": ":https://typ.ing/"
+		},
+		{
+			"passKeys": "n ",
+			"pattern": "^https://gitlab.com/[^/]+/[^/]+/-/merge_requests"
+		},
+		{
+			"passKeys": "j k v ",
+			"pattern": "^https://gitlab.com/[^/]+/[^/]+/-/merge_requests/.*/diffs"
 		}
 	],
 	"keyLayout": 26,
