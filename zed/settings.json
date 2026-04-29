@@ -38,15 +38,6 @@
     "provider": "mercury"
   },
   "agent_servers": {
-    "cursor": {
-      "favorite_config_option_values": {
-        "model": [
-          "composer-2[fast=true]",
-          "claude-opus-4-7[thinking=true,context=200k,effort=high]"
-        ]
-      },
-      "type": "registry"
-    },
     "opencode": {
       "favorite_models": ["opencode/kimi-k2.5", "opencode/kimi-k2.5-free"],
       "type": "registry"
@@ -128,11 +119,11 @@
   },
   "languages": {
     "JavaScript": {
-      "language_servers": ["tsgo", "tailwind-language-server", "oxlint", "oxfmt"],
+      "language_servers": ["tsgo", "oxlint", "oxfmt"],
       "formatter": [{ "language_server": { "name": "oxfmt" } }]
     },
     "TypeScript": {
-      "language_servers": ["tsgo", "tailwind-language-server", "oxlint", "oxfmt"],
+      "language_servers": ["tsgo", "oxlint", "oxfmt"],
       "formatter": [{ "language_server": { "name": "oxfmt" } }]
     },
     "TSX": {

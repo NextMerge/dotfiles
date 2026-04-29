@@ -29,4 +29,7 @@
   "cursor.cpp.enablePartialAccepts": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.experimental.useTsgo": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
 }
