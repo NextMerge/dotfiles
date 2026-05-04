@@ -87,14 +87,10 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "ctrl-u": [
-        "action::Sequence",
-        ["vim::ScrollUp", "editor::ScrollCursorCenter"]
-      ],
-      "ctrl-d": [
-        "action::Sequence",
-        ["vim::ScrollDown", "editor::ScrollCursorCenter"]
-      ],
+      "j": ["vim::Down", { "display_lines": true }],
+      "k": ["vim::Up", { "display_lines": true }],
+      "ctrl-u": ["action::Sequence", ["vim::ScrollUp", "editor::ScrollCursorCenter"]],
+      "ctrl-d": ["action::Sequence", ["vim::ScrollDown", "editor::ScrollCursorCenter"]],
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
       "space": null,
@@ -144,17 +140,11 @@
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "space s t": [
-        "action::Sequence",
-        ["editor::WrapSelectionsInTag", "vim::InsertBefore"]
-      ],
+      "space s t": ["action::Sequence", ["editor::WrapSelectionsInTag", "vim::InsertBefore"]],
       "shift-j": ["workspace::SendKeystrokes", "] e = g v"],
       "shift-k": ["workspace::SendKeystrokes", "[ e = g v"],
       "'": "editor::FormatSelections",
-      "space d t": [
-        "workspace::SendKeystrokes",
-        "\" a d v a t \" _ d \" a p ' [ v ] ' ="
-      ],
+      "space d t": ["workspace::SendKeystrokes", "\" a d v a t \" _ d \" a p ' [ v ] ' ="],
       "enter": "editor::SelectLargerSyntaxNode",
       "backspace": "editor::SelectSmallerSyntaxNode",
       "shift-s": "vim::PushAddSurrounds"
@@ -174,10 +164,7 @@
     "context": "vim_operator == d",
     "bindings": {
       "shift-p": "git::RestoreFile",
-      "n i q": [
-        "workspace::SendKeystrokes",
-        "ctrl-c v a q ctrl-c : /[\"'`] enter v a q"
-      ],
+      "n i q": ["workspace::SendKeystrokes", "ctrl-c v a q ctrl-c : /[\"'`] enter v a q"],
       "n a q": ["workspace::SendKeystrokes", "ctrl-c v a q ctrl-c v *"]
     }
   },
@@ -199,14 +186,8 @@
     "bindings": {
       // window related commands (ctrl-w X)
       "ctrl-w": null,
-      "ctrl-w ctrl-left": [
-        "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" }
-      ],
-      "ctrl-w ctrl-right": [
-        "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" }
-      ]
+      "ctrl-w ctrl-left": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
+      "ctrl-w ctrl-right": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }]
     }
   },
   {
