@@ -75,7 +75,9 @@
   },
   {
     "context": "Terminal",
-    "bindings": {}
+    "bindings": {
+      "shift-enter": ["terminal::SendText", "\u001b[13;2u"]
+    }
   },
   {
     "context": "Workspace || Terminal",

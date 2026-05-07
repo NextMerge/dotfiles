@@ -3,21 +3,21 @@
   // "keymap": {
   //   "sections": {
   //     "global": {
-  //       "app.exit": ["ctrl+d", "leader>q"]
+  //       "app.exit": ["ctrl+d", "<leader>q"]
   //     },
   //     "prompt": {
-  //       "session.interrupt": "escape,ctrl+c"
+  //       "session.interrupt": ["escape", "ctrl+c"]
   //     },
   //     "input": {
   //       "input.submit": "shift+return",
-  //       "input.newline": ["return", "ctrl+return", "alt+return", "ctrl+j"]
+  //       "input.newline": ["return", "shift+return", "ctrl+return", "ctrl+j"]
   //     }
   //   }
   // }
   "keybinds": {
-    "app_exit": "ctrl+d,leader>q",
+    "app_exit": "ctrl+d,<leader>q",
     "session_interrupt": "escape,ctrl+c",
     "input_submit": "shift+return",
-    "input_newline": "return,ctrl+return,alt+return,ctrl+j"
+    "input_newline": "return,ctrl+return,ctrl+j"
   }
 }
