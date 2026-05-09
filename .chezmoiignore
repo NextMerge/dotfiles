@@ -9,6 +9,7 @@ windows/
 vivaldi/
 vimium-c.json
 fish/
+global_agents/
 nvim/
 .zed/
 tmux.conf
