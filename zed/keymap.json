@@ -28,9 +28,7 @@
     "context": "Dock || Workspace",
     "bindings": {
       "ctrl-left": "workspace::ActivatePaneLeft",
-      "ctrl-right": "workspace::ActivatePaneRight",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
+      "ctrl-right": "workspace::ActivatePaneRight"
     }
   },
   {
@@ -93,8 +91,6 @@
       "k": ["vim::Up", { "display_lines": true }],
       "ctrl-u": ["action::Sequence", ["vim::ScrollUp", "editor::ScrollCursorCenter"]],
       "ctrl-d": ["action::Sequence", ["vim::ScrollDown", "editor::ScrollCursorCenter"]],
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp",
       "space": null,
       "space o c": ["task::Spawn", { "task_name": "Open in Cursor" }],
       "space q q": "zed::Quit",
