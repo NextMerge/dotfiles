@@ -40,19 +40,13 @@
   "agent_servers": {
     "cursor": {
       "favorite_config_option_values": {
-        "model": [
-          "composer-2[fast=true]",
-          "claude-opus-4-7[thinking=true,context=300k,effort=xhigh]"
-        ]
+        "model": ["composer-2[fast=true]", "claude-opus-4-7[thinking=true,context=300k,effort=xhigh]"]
       },
       "type": "registry"
     },
     "opencode": {
       "favorite_config_option_values": {
-        "model": [
-          "opencode/kimi-k2.6",
-          "opencode/big-pickle"
-        ]
+        "model": ["opencode/kimi-k2.6", "opencode/big-pickle"]
       },
       "favorite_models": ["opencode/kimi-k2.5", "opencode/kimi-k2.5-free"],
       "type": "registry"
@@ -100,7 +94,11 @@
     "calt": false
   },
   "buffer_font_size": 18,
-  "autosave": "on_focus_change",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
   "tabs": {
     "git_status": false,
     "file_icons": true
@@ -135,15 +133,15 @@
   },
   "languages": {
     "JavaScript": {
-      "language_servers": ["tsgo", "oxlint", "oxfmt"],
+      // "language_servers": ["tsgo", "!vtsls", "!typescript-language-server", "oxlint", "oxfmt"],
       "formatter": [{ "language_server": { "name": "oxfmt" } }]
     },
     "TypeScript": {
-      "language_servers": ["tsgo", "oxlint", "oxfmt"],
+      // "language_servers": ["tsgo", "!vtsls", "!typescript-language-server", "oxlint", "oxfmt"],
       "formatter": [{ "language_server": { "name": "oxfmt" } }]
     },
     "TSX": {
-      "language_servers": ["tsgo", "tailwind-language-server", "oxlint", "oxfmt"],
+      // "language_servers": ["tsgo", "!vtsls", "!typescript-language-server", "tailwind-language-server", "oxlint", "oxfmt"],
       "formatter": [{ "language_server": { "name": "oxfmt" } }]
     },
     "JSON": { "formatter": [{ "language_server": { "name": "oxfmt" } }] },

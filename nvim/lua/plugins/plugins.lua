@@ -311,13 +311,14 @@ return {
       },
     },
   },
-  { -- Line highlighting depending on current mode
-    'rasulomaroff/reactive.nvim',
-    event = 'VeryLazy',
-    opts = {
-      load = { 'catppuccin-mocha-cursor', 'catppuccin-mocha-cursorline' },
-    },
-  },
+  -- Broken with snacks.nvim: https://github.com/rasulomaroff/reactive.nvim/issues/28
+  -- { -- Line highlighting depending on current mode
+  --   'rasulomaroff/reactive.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {
+  --     load = { 'catppuccin-mocha-cursor', 'catppuccin-mocha-cursorline' },
+  --   },
+  -- },
   {
     'christoomey/vim-tmux-navigator',
     init = function()
