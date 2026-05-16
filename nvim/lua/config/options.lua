@@ -12,6 +12,4 @@ vim.opt.wrap = true
 -- Custom
 vim.opt.shell = 'fish'
 
-vim.g.autoformat = false
-
 -- vim.opt.iskeyword:append("-") -- grab tailwind classes

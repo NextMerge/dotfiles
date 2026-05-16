@@ -2,8 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local vscode = vim.g.vscode and require('vscode') or nil
-
 -- The standard
 vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'Break out of insert mode' })
 
@@ -15,7 +13,7 @@ vim.keymap.set('n', 'H', '<cmd>bprevious<CR>', { desc = 'Prev Buffer' })
 vim.keymap.set('n', 'T', '<cmd>bnext<CR>', { desc = 'Next Buffer' })
 
 -- Custom
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set({ 'n', 'x' }, 'x', '"_x', { desc = 'Delete character without copying to register' })
 
 vim.keymap.set({ 'n', 'x' }, 'q', '<Nop>')
@@ -76,18 +74,6 @@ if fast_quit() then
   vim.keymap.set('n', 'q', '<cmd>q<CR>', { desc = 'Quit' })
 end
 
-vim.keymap.set('n', ']T', function()
-  local count = vim.v.count > 0 and vim.v.count or 1
-  vim.cmd('tabmove +' .. count)
-end, { desc = 'Move tab right' })
-
-vim.keymap.set('n', '[T', function()
-  local count = vim.v.count > 0 and vim.v.count or 1
-  vim.cmd('tabmove -' .. count)
-end, { desc = 'Move tab left' })
-vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<CR>', { desc = 'New empty tab' })
-vim.keymap.set('n', '<leader>to', '<cmd>tabo<CR>', { desc = 'Close other tabs' })
-
-vim.keymap.set({ 'n', 't' }, '<C-S-t>', function()
-  Snacks.terminal.toggle(nil, { interactive = true, win = { style = 'float' } })
-end, { desc = 'Toggle floating terminal' })
+-- vim.keymap.set({ 'n', 't' }, '<C-S-t>', function()
+--   Snacks.terminal.toggle(nil, { interactive = true, win = { style = 'float' } })
+-- end, { desc = 'Toggle floating terminal' })

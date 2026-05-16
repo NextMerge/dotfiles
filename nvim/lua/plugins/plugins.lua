@@ -272,23 +272,24 @@ return {
   },
   {
     'stevearc/conform.nvim',
-    keys = {
-      {
-        "'",
-        function()
-          vim.api.nvim_exec_autocmds('User', { pattern = 'ConformStart' })
-          LazyVim.format({ force = true })
-        end,
-        mode = { 'n', 'x' },
-        desc = 'Format Injected Langs',
-      },
-    },
+    -- keys = {
+    --   {
+    --     "'",
+    --     function()
+    --       ---@diagnostic disable-next-line: param-type-mismatch
+    --       vim.api.nvim_exec_autocmds('User', { pattern = 'ConformStart' })
+    --       LazyVim.format({ force = true })
+    --     end,
+    --     mode = { 'n', 'x' },
+    --     desc = 'Format Injected Langs',
+    --   },
+    -- },
   },
   {
     'catppuccin',
-    opts = {
-      transparent_background = true,
-    },
+    -- opts = {
+    --   transparent_background = true,
+    -- },
   },
   {
     'akinsho/bufferline.nvim',
@@ -339,18 +340,5 @@ return {
       { '<c-right>', '<cmd>TmuxNavigateRight<cr>' },
       { '<c-\\>', '<cmd>TmuxNavigatePrevious<cr>' },
     },
-  },
-  {
-    'copilotlsp-nvim/copilot-lsp',
-    init = function()
-      vim.g.copilot_nes_debounce = 500
-      vim.lsp.enable('copilot_ls')
-      vim.keymap.set({ 'n', 'i' }, '<C-g>', function()
-        -- Try to jump to the start of the suggestion edit.
-        -- If already at the start, then apply the pending suggestion and jump to the end of the edit.
-        local _ = require('copilot-lsp.nes').walk_cursor_start_edit()
-          or (require('copilot-lsp.nes').apply_pending_nes() and require('copilot-lsp.nes').walk_cursor_end_edit())
-      end)
-    end,
   },
 }

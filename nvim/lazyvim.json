@@ -10,8 +10,7 @@
     "lazyvim.plugins.extras.lang.typescript.oxc",
     "lazyvim.plugins.extras.lang.typescript.tsgo",
     "lazyvim.plugins.extras.test.core",
-    "lazyvim.plugins.extras.ui.treesitter-context",
-    "lazyvim.plugins.extras.util.chezmoi"
+    "lazyvim.plugins.extras.ui.treesitter-context"
   ],
   "install_version": 8,
   "news": {
