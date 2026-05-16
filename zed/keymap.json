@@ -132,7 +132,8 @@
       "'": "editor::Format",
       "s": "vim::PushSneak",
       "shift-s": "vim::PushSneakBackward",
-      "space e": ["task::Spawn", { "task_name": "Yazi File Finder" }]
+      "space e": ["task::Spawn", { "task_name": "Yazi File Finder" }],
+      "space shift-e": ["task::Spawn", { "task_name": "Yazi File Finder (workspace root)" }]
     }
   },
   {

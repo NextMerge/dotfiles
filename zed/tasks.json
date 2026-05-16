@@ -88,5 +88,14 @@
     },
     "reveal_target": "center",
     "hide": "on_success"
+  },
+  {
+    "label": "Yazi File Finder (workspace root)",
+    "command": "set -l f '$ZED_WORKTREE_ROOT'; yazi --chooser-file=/dev/stdout $f | while read -l file; if test -n \"$file\"; zed \"$file\"; end; end",
+    "shell": {
+      "program": "fish"
+    },
+    "reveal_target": "center",
+    "hide": "on_success"
   }
 ]
