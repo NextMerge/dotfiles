@@ -1,5 +1,5 @@
 [language-server]
-oxlint = {command = "oxlint", args = ["--lsp"]}
+oxlint = { command = "oxlint", args = ["--lsp"] }
 
 [language-server.tsgo]
 command = 'tsgo'
@@ -37,7 +37,7 @@ auto-format = true
 language-servers = [
   # { name = "typescript-language-server", except-features = [ "format" ] },
   "tsgo",
-  "oxlint"
+  "oxlint",
 ]
 
 [[language]]
@@ -46,7 +46,7 @@ auto-format = true
 language-servers = [
   # { name = "typescript-language-server", except-features = [ "format" ] },
   "tsgo",
-  "oxlint"
+  "oxlint",
 ]
 
 [[language]]
@@ -56,7 +56,7 @@ language-servers = [
   # { name = "typescript-language-server", except-features = [ "format" ] },
   "tsgo",
   "tailwindcss",
-  "oxlint"
+  "oxlint",
 ]
 
 [[language]]
@@ -66,14 +66,13 @@ language-servers = [
   # { name = "typescript-language-server", except-features = [ "format" ] },
   "tsgo",
   "tailwindcss",
-  "oxlint"
+  "oxlint",
 ]
 
 [[language]]
 name = "json"
-language-servers = [ "vscode-json-language-server", "oxlint" ]
+language-servers = ["vscode-json-language-server", "oxlint"]
 
 [[language]]
 name = "jsonc"
-language-servers = [ "vscode-json-language-server", "oxlint" ]
-
+language-servers = ["vscode-json-language-server", "oxlint"]

@@ -5,6 +5,8 @@ line-number = "relative"
 cursorline = true
 color-modes = true
 shell = ["/opt/homebrew/bin/fish", "-c"]
+# Sync clipboard with system clipboard
+default-yank-register = "+"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -23,7 +25,11 @@ after-delay.enable = true
 S-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 # Move line up
 S-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"#" = "toggle_comments"
+
+[keys.normal.space]
+space = "file_picker"
 
 [keys.insert]
-C-c = ["normal_mode", ":w"]
+C-c = "normal_mode"
 
