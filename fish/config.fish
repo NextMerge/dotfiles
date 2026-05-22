@@ -16,6 +16,7 @@ function multicd
 end
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 
+abbr -a nv nvim
 abbr -a pn pnpm
 abbr -a por pnpm -F portal
 abbr -a som pnpm -F sombra

@@ -12,7 +12,7 @@
   ],
   "displayMode" : "static",
   "enableFocusManagement" : true,
-  "enableIntegrations" : true,
+  "enableIntegrations" : false,
   "enablePictureInPictureSupport" : true,
   "enableSpaceControl" : false,
   "enableSpaceControlAnimations" : true,
@@ -37,7 +37,9 @@
   "loopWorkspaces" : true,
   "loopWorkspacesOnAllDisplays" : false,
   "menuBarDisplayAliases" : "",
+  "menuBarTitleScriptPath" : "",
   "menuBarTitleTemplate" : "",
+  "menuBarTitleUseScript" : false,
   "pipApps" : [
 
   ],

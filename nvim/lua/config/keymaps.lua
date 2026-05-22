@@ -9,16 +9,13 @@ vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'Break out of insert mode' })
 vim.keymap.set('n', '<C-r>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
 vim.keymap.set('n', '<C-l>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
 
-vim.keymap.set('n', 'H', '<cmd>bprevious<CR>', { desc = 'Prev Buffer' })
-vim.keymap.set('n', 'T', '<cmd>bnext<CR>', { desc = 'Next Buffer' })
-
 -- Custom
-vim.keymap.set('x', '<leader>p', [["_dP]])
+vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without yanking' })
 vim.keymap.set({ 'n', 'x' }, 'x', '"_x', { desc = 'Delete character without copying to register' })
 
 vim.keymap.set({ 'n', 'x' }, 'q', '<Nop>')
-vim.keymap.set('n', '<C-q>', 'q', { desc = 'Start/Stop recording a macro' })
 vim.keymap.set('n', 'Q', '<Nop>')
+vim.keymap.set('n', '<C-q>', 'q', { desc = 'Start/Stop recording a macro' })
 
 vim.keymap.set({ 'n', 'x' }, '<C-d>', '<C-d>zz', { desc = 'Scroll down and center screen on cursor' })
 vim.keymap.set({ 'n', 'x' }, '<C-u>', '<C-u>zz', { desc = 'Scroll up and center screen on cursor' })
@@ -73,7 +70,3 @@ end
 if fast_quit() then
   vim.keymap.set('n', 'q', '<cmd>q<CR>', { desc = 'Quit' })
 end
-
--- vim.keymap.set({ 'n', 't' }, '<C-S-t>', function()
---   Snacks.terminal.toggle(nil, { interactive = true, win = { style = 'float' } })
--- end, { desc = 'Toggle floating terminal' })

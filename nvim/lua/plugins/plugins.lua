@@ -20,65 +20,100 @@ return {
         desc = 'Smart Find Files',
       },
     },
-    opts = {
-      dashboard = {
-        preset = {
-          keys = {
-            { icon = ' ', key = 'f', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
-            { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
-            {
-              icon = ' ',
-              key = 'r',
-              desc = 'Recent Files',
-              action = ":lua Snacks.dashboard.pick('oldfiles', { filter = { cwd = true } })",
-            },
-            {
-              icon = ' ',
-              key = 'c',
-              desc = 'Config',
-              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-            },
-            { icon = ' ', key = 's', desc = 'Restore Session', section = 'session' },
-            { icon = ' ', key = 'x', desc = 'Lazy Extras', action = ':LazyExtras' },
-            { icon = '󰒲 ', key = 'l', desc = 'Lazy', action = ':Lazy' },
-            { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
-          },
+    opts = function()
+      local gitActions = {
+        actions = {
+          ['open_file'] = function(picker)
+            local currentCommit = picker:current().commit
+            picker:close()
+            vim.cmd('Gitsigns show ' .. currentCommit)
+          end,
+          ['diffview'] = function(picker)
+            local currentCommit = picker:current().commit
+            picker:close()
+            vim.cmd('DiffviewOpen HEAD ' .. currentCommit)
+          end,
         },
-      },
-      picker = {
         win = {
           input = {
             keys = {
-              ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
-              ['<C-c>'] = 'cancel',
-            },
-          },
-        },
-        sources = {
-          smart = {
-            multi = { 'buffers', 'recent', 'files', 'git_files' },
-            filter = { cwd = true },
-          },
-          help = {
-            win = {
-              input = {
-                keys = {
-                  ['<CR>'] = { 'tab', mode = { 'n', 'i' } },
-                },
+              ['<CR>'] = {
+                'open_file',
+                desc = 'Open File',
+                mode = { 'n', 'i' },
+              },
+              ['<c-d>'] = {
+                'diffview',
+                desc = 'Diffview',
+                mode = { 'n', 'i' },
               },
             },
           },
         },
-      },
-      scratch = {
-        filekey = {
-          branch = false,
+      }
+
+      return {
+        dashboard = {
+          preset = {
+            keys = {
+              { icon = ' ', key = 'f', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
+              { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
+              {
+                icon = ' ',
+                key = 'r',
+                desc = 'Recent Files',
+                action = ":lua Snacks.dashboard.pick('oldfiles', { filter = { cwd = true } })",
+              },
+              {
+                icon = ' ',
+                key = 'c',
+                desc = 'Config',
+                action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+              },
+              { icon = ' ', key = 's', desc = 'Restore Session', section = 'session' },
+              { icon = ' ', key = 'x', desc = 'Lazy Extras', action = ':LazyExtras' },
+              { icon = '󰒲 ', key = 'l', desc = 'Lazy', action = ':Lazy' },
+              { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
+            },
+          },
         },
-      },
-      words = {
-        enabled = false,
-      },
-    },
+        picker = {
+          win = {
+            input = {
+              keys = {
+                ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+                ['<C-c>'] = 'cancel',
+              },
+            },
+          },
+          sources = {
+            smart = {
+              multi = { 'buffers', 'recent', 'files', 'git_files' },
+              filter = { cwd = true },
+            },
+            help = {
+              win = {
+                input = {
+                  keys = {
+                    ['<CR>'] = { 'tab', mode = { 'n', 'i' } },
+                  },
+                },
+              },
+            },
+            git_log = gitActions,
+            git_log_file = gitActions,
+          },
+        },
+        scratch = {
+          filekey = {
+            branch = false,
+          },
+        },
+        words = {
+          enabled = false,
+        },
+      }
+    end,
   },
   {
     'nvim-mini/mini.files',
@@ -115,75 +150,6 @@ return {
     },
   },
   {
-    'nvim-mini/mini.surround',
-    vscode = true,
-    opts = {
-      mappings = {
-        add = 'ma', -- Add surrounding in Normal and Visual modes
-        delete = 'md', -- Delete surrounding
-        find = 'mf', -- Find surrounding (to the right)
-        find_left = 'mF', -- Find surrounding (to the left)
-        highlight = 'mh', -- Highlight surrounding
-        replace = 'mr', -- Replace surrounding
-        update_n_lines = 'mn', -- Update `n_lines`
-      },
-    },
-  },
-  {
-    'nvim-mini/mini.operators',
-    vscode = true,
-    lazy = false,
-    version = '*',
-    opts = {
-      -- Evaluate text and replace with output
-      evaluate = {
-        prefix = 'mo=',
-      },
-
-      -- Exchange text regions
-      exchange = {
-        prefix = 'mox',
-      },
-
-      -- Multiply (duplicate) text
-      multiply = {
-        prefix = 'mom',
-      },
-
-      -- Replace text with register
-      replace = {
-        prefix = 'mor',
-      },
-
-      -- Sort text
-      sort = {
-        prefix = 'mos',
-      },
-    },
-    keys = {
-      { 'mo', '', mode = { 'n', 'x' }, desc = '+operators' },
-    },
-  },
-  {
-    'nvim-mini/mini.ai',
-    opts = {
-      custom_textobjects = {
-        -- JSX attributes
-        j = {
-          {
-            { '[%S^]%s+%w+=%b{}', '^.()%s+%w+={().*()}()' },
-            { '[%S^]%s+%w+=%b""', '^.()%s+%w+="().*()"()' },
-          },
-        },
-        ['-'] = {
-          {
-            '[%s"]()()[%w-:%[%]]+()%s?()"?',
-          },
-        },
-      },
-    },
-  },
-  {
     'nvim-treesitter/nvim-treesitter-context',
     opts = function()
       local tsc = require('treesitter-context')
@@ -208,7 +174,6 @@ return {
   },
   {
     'folke/which-key.nvim',
-    url = 'https://github.com/NextMerge/which-key.nvim.git',
     opts = {
       delay = 0,
       keys = {
@@ -219,22 +184,15 @@ return {
         {
           mode = { 'n', 'x' },
           { '<leader>t', group = '+tab/treesitter' },
-          { '<leader>h', group = '+gitsigns' },
-          { 'm', group = '+mini' },
         },
         {
           mode = 'n',
           { '<leader>y', group = '+yank' },
         },
-        {
-          mode = 'x',
-          { '<leader>d', 'Delete without writing to the copy register' },
-        },
       },
     },
     triggers = {
       { '<auto>', mode = 'nixsotc' },
-      { 'm', mode = { 'n', 'x' } },
     },
   },
   {
@@ -272,18 +230,53 @@ return {
   },
   {
     'stevearc/conform.nvim',
-    -- keys = {
-    --   {
-    --     "'",
-    --     function()
-    --       ---@diagnostic disable-next-line: param-type-mismatch
-    --       vim.api.nvim_exec_autocmds('User', { pattern = 'ConformStart' })
-    --       LazyVim.format({ force = true })
-    --     end,
-    --     mode = { 'n', 'x' },
-    --     desc = 'Format Injected Langs',
-    --   },
-    -- },
+    keys = {
+      {
+        "'",
+        function()
+          ---@diagnostic disable-next-line: param-type-mismatch
+          vim.api.nvim_exec_autocmds('User', { pattern = 'ConformStart' })
+          LazyVim.format({ force = true })
+        end,
+        mode = { 'n', 'x' },
+        desc = 'Format Injected Langs',
+      },
+    },
+  },
+  {
+    'cbochs/grapple.nvim',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons', lazy = true },
+    },
+    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = 'Grapple',
+    opts = {
+      scope = 'git',
+    },
+    keys = {
+      { '<leader>m', '<cmd>Grapple toggle<cr>', desc = 'Tag a file' },
+      { '<leader>M', '<cmd>Grapple toggle_tags<cr>', desc = 'Toggle tags menu' },
+      {
+        '<C-h>',
+        '<cmd>Grapple select index=1<cr>',
+        desc = 'Select tag 1',
+      },
+      {
+        '<C-t>',
+        '<cmd>Grapple select index=2<cr>',
+        desc = 'Select tag 2',
+      },
+      {
+        '<C-n>',
+        '<cmd>Grapple select index=3<cr>',
+        desc = 'Select tag 3',
+      },
+      {
+        '<C-s>',
+        '<cmd>Grapple select index=4<cr>',
+        desc = 'Select tag 4',
+      },
+    },
   },
   {
     'catppuccin',
@@ -301,6 +294,30 @@ return {
   },
 
   -- New plugins
+
+  {
+    'nvim-mini/mini.operators',
+    version = '*',
+  },
+  {
+    'nvim-mini/mini.ai',
+    opts = {
+      custom_textobjects = {
+        -- JSX attributes
+        j = {
+          {
+            { '[%S^]%s+%w+=%b{}', '^.()%s+%w+={().*()}()' },
+            { '[%S^]%s+%w+=%b""', '^.()%s+%w+="().*()"()' },
+          },
+        },
+        ['-'] = {
+          {
+            '[%s"]()()[%w-:%[%]]+()%s?()"?',
+          },
+        },
+      },
+    },
+  },
 
   { -- Autosave
     'okuuva/auto-save.nvim',
@@ -320,25 +337,4 @@ return {
   --     load = { 'catppuccin-mocha-cursor', 'catppuccin-mocha-cursorline' },
   --   },
   -- },
-  {
-    'christoomey/vim-tmux-navigator',
-    init = function()
-      vim.g.tmux_navigator_no_mappings = 1
-    end,
-    cmd = {
-      'TmuxNavigateLeft',
-      'TmuxNavigateDown',
-      'TmuxNavigateUp',
-      'TmuxNavigateRight',
-      'TmuxNavigatePrevious',
-      'TmuxNavigatorProcessList',
-    },
-    keys = {
-      { '<c-left>', '<cmd>TmuxNavigateLeft<cr>' },
-      { '<c-j>', '<cmd>TmuxNavigateDown<cr>' },
-      { '<c-k>', '<cmd>TmuxNavigateUp<cr>' },
-      { '<c-right>', '<cmd>TmuxNavigateRight<cr>' },
-      { '<c-\\>', '<cmd>TmuxNavigatePrevious<cr>' },
-    },
-  },
 }

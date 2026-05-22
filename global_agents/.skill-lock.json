@@ -33,10 +33,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/improve-codebase-architecture/SKILL.md",
-      "skillFolderHash": "3ad8fa787b3b9b622d1f5a3d0afc27812ac782fa",
-      "pluginName": "mattpocock-skills",
+      "skillFolderHash": "688c17ec27fe9309d84987716aca37b5ce7f3a88",
       "installedAt": "2026-05-09T03:36:09.545Z",
-      "updatedAt": "2026-05-11T14:13:45.761Z"
+      "updatedAt": "2026-05-20T20:24:24.673Z"
+    },
+    "clean-code": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "skillPath": "skills/clean-code/SKILL.md",
+      "skillFolderHash": "f7e9ebffd5608df6b3ab00e0b0375d693215a409",
+      "installedAt": "2026-05-16T22:50:17.891Z",
+      "updatedAt": "2026-05-16T22:50:17.891Z"
     }
   },
   "dismissed": {
@@ -55,7 +63,6 @@
     "github-copilot",
     "kimi-cli",
     "opencode",
-    "warp",
-    "claude-code"
+    "warp"
   ]
 }
