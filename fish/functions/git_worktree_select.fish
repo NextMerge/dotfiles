@@ -1,5 +1,5 @@
 function git_worktree_select --description "Git Worktree Select - Interactive worktree selection"
-    set -l git_dir
+    set -l git_dir (pwd)
     if test (count $argv) -gt 0
         set git_dir $argv[1]
     end
@@ -7,6 +7,12 @@ function git_worktree_select --description "Git Worktree Select - Interactive wo
     if not git -C "$git_dir" worktree list >/dev/null 2>&1
         echo (set_color red)"Not a git repository"(set_color normal)
         return 1
+    end
+
+    # If this isn't a bare repository, return the git directory
+    if not test -d "$git_dir/.bare"
+        echo "$git_dir"
+        return 0
     end
 
     set -l worktree_list_output (git -C "$git_dir" worktree list | grep -v "(bare)" | string collect)

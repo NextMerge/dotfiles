@@ -28,11 +28,11 @@ return {
             picker:close()
             vim.cmd('Gitsigns show ' .. currentCommit)
           end,
-          ['diffview'] = function(picker)
-            local currentCommit = picker:current().commit
-            picker:close()
-            vim.cmd('DiffviewOpen HEAD ' .. currentCommit)
-          end,
+          -- ['diffview'] = function(picker)
+          --   local currentCommit = picker:current().commit
+          --   picker:close()
+          --   vim.cmd('DiffviewOpen HEAD ' .. currentCommit)
+          -- end,
         },
         win = {
           input = {
@@ -200,6 +200,12 @@ return {
     opts = function(_, opts)
       local currentSymbolIndex = 5
       table.remove(opts.sections.lualine_c, currentSymbolIndex)
+
+      opts.sections.lualine_z = {}
+      opts.sections.lualine_y = vim.deepcopy(opts.sections.lualine_x)
+      opts.sections.lualine_x = {}
+      -- local currentTimeIndex = 0
+      -- table.remove(opts.sections.lualine_z, currentTimeIndex)
     end,
   },
   {
@@ -244,6 +250,71 @@ return {
     },
   },
   {
+    'catppuccin',
+    -- opts = {
+    --   transparent_background = true,
+    -- },
+  },
+  {
+    'akinsho/bufferline.nvim',
+    enabled = false,
+  },
+  {
+    'folke/todo-comments.nvim',
+    enabled = false,
+  },
+
+  -- New plugins
+
+  {
+    'nvim-mini/mini.operators',
+    version = '*',
+    opts = {
+      exchange = {
+        prefix = 'cx',
+
+        -- Whether to reindent new text to match previous indent
+        reindent_linewise = true,
+      },
+      replace = {
+        prefix = 'cr',
+
+        -- Whether to reindent new text to match previous indent
+        reindent_linewise = true,
+      },
+    },
+  },
+  {
+    'nvim-mini/mini.ai',
+    opts = {
+      custom_textobjects = {
+        -- JSX attributes
+        j = {
+          {
+            { '[%S^]%s+%w+=%b{}', '^.()%s+%w+={().*()}()' },
+            { '[%S^]%s+%w+=%b""', '^.()%s+%w+="().*()"()' },
+          },
+        },
+        ['-'] = {
+          {
+            '[%s"]()()[%w-:%[%]]+()%s?()"?',
+          },
+        },
+      },
+    },
+  },
+
+  { -- Autosave
+    'okuuva/auto-save.nvim',
+    cmd = 'ASToggle', -- optional for lazy loading on command
+    event = { 'InsertLeave', 'TextChanged' }, -- optional for lazy loading on trigger events
+    opts = {
+      trigger_events = {
+        cancel_deferred_save = { 'InsertEnter', { 'User', pattern = 'ConformStart' } },
+      },
+    },
+  },
+  {
     'cbochs/grapple.nvim',
     dependencies = {
       { 'nvim-tree/nvim-web-devicons', lazy = true },
@@ -278,57 +349,7 @@ return {
       },
     },
   },
-  {
-    'catppuccin',
-    -- opts = {
-    --   transparent_background = true,
-    -- },
-  },
-  {
-    'akinsho/bufferline.nvim',
-    enabled = false,
-  },
-  {
-    'folke/todo-comments.nvim',
-    enabled = false,
-  },
 
-  -- New plugins
-
-  {
-    'nvim-mini/mini.operators',
-    version = '*',
-  },
-  {
-    'nvim-mini/mini.ai',
-    opts = {
-      custom_textobjects = {
-        -- JSX attributes
-        j = {
-          {
-            { '[%S^]%s+%w+=%b{}', '^.()%s+%w+={().*()}()' },
-            { '[%S^]%s+%w+=%b""', '^.()%s+%w+="().*()"()' },
-          },
-        },
-        ['-'] = {
-          {
-            '[%s"]()()[%w-:%[%]]+()%s?()"?',
-          },
-        },
-      },
-    },
-  },
-
-  { -- Autosave
-    'okuuva/auto-save.nvim',
-    cmd = 'ASToggle', -- optional for lazy loading on command
-    event = { 'InsertLeave', 'TextChanged' }, -- optional for lazy loading on trigger events
-    opts = {
-      trigger_events = {
-        cancel_deferred_save = { 'InsertEnter', { 'User', pattern = 'ConformStart' } },
-      },
-    },
-  },
   -- Broken with snacks.nvim: https://github.com/rasulomaroff/reactive.nvim/issues/28
   -- { -- Line highlighting depending on current mode
   --   'rasulomaroff/reactive.nvim',

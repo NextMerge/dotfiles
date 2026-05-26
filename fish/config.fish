@@ -1,4 +1,3 @@
-alias keyboardmaestro='/Applications/Keyboard\ Maestro.app/Contents/MacOS/keyboardmaestro'
 fish_add_path $HOME/.local/bin
 fish_add_path /Applications/Bear.app/Contents/MacOS/
 
@@ -6,17 +5,40 @@ if not status is-interactive
     return
 end
 
+fish_config theme choose catppuccin-mocha
+
 set -g fish_greeting ""
 
+set -gx SHELL (which fish)
 set -gx EDITOR nvim
 set -gx GITTER_DIR "$HOME/gitter"
+
+set -gx hydro_multiline true
+set -gx hydro_symbol_start "\n"
+set -gx hydro_color_duration yellow
+set -gx hydro_color_pwd cyan
+set -gx hydro_color_git purple
+set -gx HOMEBREW_NO_ENV_HINTS 1
+set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
+
+# Generic color var for some programs (such as eza)
+set -gx LS_COLORS "$(vivid generate catppuccin-mocha)"
+set -gx BAT_THEME "Catppuccin Mocha"
+# bat coloring for man pages
+set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+
+bind ctrl-. forward-token
+bind ctrl-comma backward-token
+
+tv init fish | source
+zoxide init fish --cmd cd | source
 
 function multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 
-abbr -a nv nvim
+abbr -a n nvim
 abbr -a pn pnpm
 abbr -a por pnpm -F portal
 abbr -a som pnpm -F sombra
@@ -30,28 +52,4 @@ abbr -a cma 'chezmoi apply'
 abbr -a cms 'chezmoi status'
 abbr -a cmd 'chezmoi diff'
 abbr -a oc opencode
-
-set -gx HOMEBREW_NO_ENV_HINTS 1
-set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
-
-fish_config theme choose catppuccin-mocha
-
-# Generic color var for some programs (such as eza)
-set -gx LS_COLORS "$(vivid generate catppuccin-mocha)"
-
-set -gx BAT_THEME "Catppuccin Mocha"
-# Use bat coloring for man pages
-set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-
-tv init fish | source
-
-bind ctrl-. forward-token
-bind ctrl-comma backward-token
-
-set -gx hydro_multiline true
-set -gx hydro_symbol_start "\n"
-set -gx hydro_color_duration yellow
-set -gx hydro_color_pwd cyan
-set -gx hydro_color_git purple
-
-zoxide init fish --cmd cd | source
+abbr -a g tv gitter

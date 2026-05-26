@@ -1,0 +1,23 @@
+[metadata]
+name = "gitter"
+requirements = ["fd", "git"]
+description = """
+A channel to select from git repositories on your local machine.
+
+Uses the `gitter` fish function to find regular and bare git repositories, with git log preview and cd action (worktree selection for bare repos).
+"""
+
+[source]
+command = "repos"
+display = "{split:/:-1}"
+
+[preview]
+command = "git -C '{}' log -n 200 --pretty=medium --all --graph --color"
+
+[keybindings]
+enter = "actions:cd"
+
+[actions.cd]
+description = "Open a new shell in the selected repository"
+command = "cd (git_worktree_select '{}')"
+mode = "execute"

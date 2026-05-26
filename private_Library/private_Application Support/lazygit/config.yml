@@ -6,9 +6,6 @@ gui:
   nerdFontsVersion: "3"
   scrollHeight: 5
 
-os:
-  editPreset: zed
-
 keybinding:
   universal:
     prevBlock-alt: "" # no-op to free 'h'
