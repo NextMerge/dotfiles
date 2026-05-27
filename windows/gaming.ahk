@@ -304,27 +304,11 @@ Delete::Enter
 ~*Space:: ResetTypingModeTimer()
 #HotIf
 
-+#g:: ToggleKeySwaps()
-+#q:: ToggleQWERTY()
-+#r:: Reload()
-+#y:: CopyExeNameToClipboardAndOpenFile()
-+#v:: CheckVpnStatus()
-+#i:: TypeOutSanitizedTextInClipboard()
++#^!g:: ToggleKeySwaps()
++#^!q:: ToggleQWERTY()
++#^!r:: Reload()
++#^!y:: CopyExeNameToClipboardAndOpenFile()
+; +#^!v:: CheckVpnStatus()
++#^!i:: TypeOutSanitizedTextInClipboard()
 
-#HotIf !GetKeyState("Ctrl") && !GetKeyState("Alt") && !GetKeyState("Shift")
-#b:: #^b
-#f:: #^f
-#d:: #^!d
-#m:: #^!m
-#w:: #^w
-#HotIf
-
-; Disable tapping Win key to open start menu https://www.autohotkey.com/docs/v2/lib/A_MenuMaskKey.htm#Remarks
-~LWin:: {
-    ; Only send the suppression sequence if the window is NOT Raycast
-    ; It interferes with setting hotkeys
-    if (!IsTargetExeActive(["Raycast"])) {
-        Send "{Blind}{vkE8}"
-    }
-    return
-}
+#^!f:: F23
