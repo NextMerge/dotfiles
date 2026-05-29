@@ -5,6 +5,8 @@ if not status is-interactive
     return
 end
 
+source ~/.config/fish/env.fish
+
 fish_config theme choose catppuccin-mocha
 
 set -g fish_greeting ""

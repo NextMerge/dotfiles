@@ -116,6 +116,65 @@ return {
     end,
   },
   {
+    'folke/flash.nvim',
+    opts = {
+      label = {
+        uppercase = false,
+      },
+    },
+    keys = {
+      { 'S', mode = { 'n', 'x', 'o' }, false },
+      { 's', mode = { 'o' }, false },
+      {
+        'gw',
+        function()
+          local flash_lib = (require)('flash')
+
+          local function format(opts)
+            -- always show first and second label
+            return {
+              { opts.match.label1, 'FlashLabel' },
+              { opts.match.label2, 'FlashLabel' },
+            }
+          end
+
+          flash_lib.jump({
+            search = { mode = 'search' },
+            label = { after = false, before = { 0, 0 }, uppercase = false, format = format },
+            pattern = [[\<]],
+            action = function(match, state)
+              state:hide()
+              flash_lib.jump({
+                search = { max_length = 0 },
+                highlight = { matches = false },
+                label = { format = format },
+                matcher = function(win)
+                  -- limit matches to the current label
+                  return vim.tbl_filter(function(m)
+                    return m.label == match.label and m.win == win
+                  end, state.results)
+                end,
+                labeler = function(matches)
+                  for _, m in ipairs(matches) do
+                    m.label = m.label2 -- use the Second label
+                  end
+                end,
+              })
+            end,
+            labeler = function(matches, state)
+              local labels = state:labels()
+              for m, match in ipairs(matches) do
+                match.label1 = labels[math.floor((m - 1) / #labels) + 1]
+                match.label2 = labels[(m - 1) % #labels + 1]
+                match.label = match.label1
+              end
+            end,
+          })
+        end,
+      },
+    },
+  },
+  {
     'nvim-mini/mini.files',
     keys = {
       {
@@ -193,6 +252,75 @@ return {
     },
     triggers = {
       { '<auto>', mode = 'nixsotc' },
+    },
+  },
+  {
+    'nvim-mini/mini.surround',
+    opts = {
+      mappings = {
+        add = 'ys',
+        delete = 'ds',
+        find = '',
+        find_left = '',
+        highlight = '',
+        replace = 'cs',
+      },
+    },
+    keys = {
+      -- Remap adding surrounding to Visual mode selection
+      {
+        'S',
+        [[:<C-u>lua MiniSurround.add('visual')<CR>]],
+        mode = { 'x' },
+        silent = true,
+      },
+      {
+        'yss',
+        'ys_',
+        mode = 'n',
+        remap = true,
+      },
+    },
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      on_attach = function(buffer)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
+        end
+
+        -- stylua: ignore start
+        map("n", "]h", function()
+          if vim.wo.diff then
+            vim.cmd.normal({ "]c", bang = true })
+          else
+            gs.nav_hunk("next")
+          end
+        end, "Next Hunk")
+        map("n", "[h", function()
+          if vim.wo.diff then
+            vim.cmd.normal({ "[c", bang = true })
+          else
+            gs.nav_hunk("prev")
+          end
+        end, "Prev Hunk")
+        map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
+        map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
+        map({ "n", "x" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+        map({ "n", "x" }, "dp", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+        map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+        map("n", "dP", gs.reset_buffer, "Reset Buffer")
+        map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
+        map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+        map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
+        map("n", "<leader>ghd", gs.diffthis, "Diff This")
+        map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+      end,
     },
   },
   {
@@ -349,8 +477,21 @@ return {
       },
     },
   },
+  {
+    'cursortab/cursortab.nvim',
+    lazy = false, -- The server is already lazy loaded
+    build = 'cd server && go build',
+    opts = {
+      log_level = 'debug',
+      provider = {
+        type = 'mercuryapi',
+        api_key_env = 'MERCURY_AI_TOKEN',
+      },
+    },
+  },
 
   -- Broken with snacks.nvim: https://github.com/rasulomaroff/reactive.nvim/issues/28
+  -- Test man thest
   -- { -- Line highlighting depending on current mode
   --   'rasulomaroff/reactive.nvim',
   --   event = 'VeryLazy',

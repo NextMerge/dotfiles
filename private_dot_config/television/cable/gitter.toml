@@ -19,5 +19,5 @@ enter = "actions:cd"
 
 [actions.cd]
 description = "Open a new shell in the selected repository"
-command = "cd (git_worktree_select '{}')"
+command = "cd (git_worktree_select {}) && $SHELL"
 mode = "execute"

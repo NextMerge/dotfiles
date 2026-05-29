@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+
 -- The standard
 vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'Break out of insert mode' })
 
@@ -24,6 +25,9 @@ vim.keymap.set('x', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selection down a lin
 vim.keymap.set('x', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selection up a line' })
 
 vim.keymap.set({ 'n', 'x' }, 'U', '<cmd>redo<CR>')
+
+vim.keymap.set({ 'n', 'v' }, 'gh', '^')
+vim.keymap.set({ 'n', 'v' }, 'gl', '$')
 
 vim.keymap.set('n', '<leader>yf', '<cmd>let @+=expand("%:.")<CR>', { desc = 'Yank filepath' })
 vim.keymap.set('n', '<leader>yF', '<cmd>let @+=expand("%:p")<CR>', { desc = 'Yank absolute filepath' })
