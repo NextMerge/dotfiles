@@ -7,6 +7,15 @@ color-modes = true
 shell = ["/opt/homebrew/bin/fish", "-c"]
 # Sync clipboard with system clipboard
 default-yank-register = "+"
+bufferline = "multiple"
+scrolloff = 8
+true-color = true  
+undercurl = true
+jump-label-alphabet = "aoeuhtns'qjkmwvz"
+end-of-line-diagnostics = "error"
+# rulers = [80, 120]
+completion-replace = true
+popup-border = "all"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -21,14 +30,29 @@ after-delay.timeout = 1000
 after-delay.enable = true
 
 [keys.normal]
+C-c = "no_op"
+
 # Move line down
 S-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 # Move line up
 S-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 "#" = "toggle_comments"
+C-u = ["page_cursor_half_up", "align_view_center"]
+C-d = ["page_cursor_half_down", "align_view_center"]
 
 [keys.normal.space]
 space = "file_picker"
+c = [":insert-output chezmoi apply", ":reload-all", ":config-reload"]
+S-c = ":open %sh{echo (chezmoi source-path)/private_dot_config/helix/config.toml}"
+
+g = [
+  ":write-all",
+  ":insert-output lazygit >/dev/tty",
+  ":redraw",
+  ":set mouse false",
+  ":set mouse true",
+  ":reload-all"
+]
 
 [keys.insert]
 C-c = "normal_mode"
