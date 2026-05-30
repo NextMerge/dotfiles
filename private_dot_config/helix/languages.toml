@@ -76,3 +76,8 @@ language-servers = ["vscode-json-language-server", "oxlint"]
 [[language]]
 name = "jsonc"
 language-servers = ["vscode-json-language-server", "oxlint"]
+
+[[language]]
+name = "fish"
+formatter = { command = "fish_indent" }
+auto-format = true
