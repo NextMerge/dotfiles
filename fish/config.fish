@@ -31,6 +31,7 @@ set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -
 
 bind ctrl-. forward-token
 bind ctrl-comma backward-token
+bind \cz 'fg 2>/dev/null; commandline -f repaint'
 
 tv init fish | source
 zoxide init fish --cmd cd | source

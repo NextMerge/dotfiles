@@ -16,7 +16,7 @@ function harpoon --description "Stores/reads file paths in a per-working directo
             set -l target $argv[2]
             if not test -f $harpoon_file
                 echo $target >$harpoon_file
-            else if rg "^$target\$" $harpoon_file
+            else if rg "^$target\$" $harpoon_file  > /dev/null
                 rg -v "^$target\$" $harpoon_file >$harpoon_file.tmp
                 mv $harpoon_file.tmp $harpoon_file
             else
