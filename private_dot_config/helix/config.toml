@@ -66,6 +66,7 @@ C-c = "no_op"
 C-u = ["page_cursor_half_up", "align_view_center"]
 C-d = ["page_cursor_half_down", "align_view_center"]
 g = { h = ["insert_at_line_start", "normal_mode"] }
+S-d = "delete_char_backward"
 C-h = ":open %sh{harpoon get 1}"
 C-t = ":open %sh{harpoon get 2}"
 C-n = ":open %sh{harpoon get 3}"
@@ -89,10 +90,12 @@ C-c = "normal_mode"
 [keys.normal.space]
 space = "file_picker"
 q = ":quit"
-c = [":insert-output chezmoi apply", ":reload-all", ":config-reload"]
+c = [":insert-output clear && chezmoi apply", ":config-reload", ":reload-all", ":redraw"]
 S-c = ":open %sh{echo (chezmoi source-path)/private_dot_config/helix/config.toml}"
 m = ":sh harpoon hook %{buffer_name}"
 S-m = ":open %sh{harpoon edit}"
+B = ":sh git log -n 5 --format='format:%%h (%%an: %%ar) %%s' --no-patch -L%{cursor_line},+1:%{buffer_name}"
+f = ":insert-output lazygit --filter \"%{buffer_name}\""
 e = [
   ':sh rm -f /tmp/unique-file',
   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
