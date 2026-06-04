@@ -7,6 +7,8 @@
 vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'Break out of insert mode' })
 
 -- Overwrites
+vim.keymap.set('n', '<C-left>', '<cmd>wincmd h<cr>', { desc = 'Go to the left window' })
+vim.keymap.set('n', '<C-right>', '<cmd>wincmd l<cr>', { desc = 'Go to the right window' })
 vim.keymap.set('n', '<C-r>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
 vim.keymap.set('n', '<C-l>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
 
