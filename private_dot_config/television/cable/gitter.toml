@@ -10,14 +10,15 @@ Uses the `gitter` fish function to find regular and bare git repositories, with 
 [source]
 command = "repos"
 display = "{split:/:-1}"
+# output = "git_worktree_select '{}'"
 
 [preview]
 command = "git -C '{}' log -n 200 --pretty=medium --all --graph --color"
 
-[keybindings]
-enter = "actions:cd"
-
-[actions.cd]
-description = "Open a new shell in the selected repository"
-command = "cd (git_worktree_select {}) && $SHELL"
-mode = "execute"
+# [keybindings]
+# enter = "actions:open"
+#
+# [actions.open]
+# description = "Open the repository in editor"
+# command = "git_worktree_select {}"
+# mode = "execute"

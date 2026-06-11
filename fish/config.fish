@@ -55,4 +55,11 @@ abbr -a cma 'chezmoi apply'
 abbr -a cms 'chezmoi status'
 abbr -a cmd 'chezmoi diff'
 abbr -a oc opencode
-abbr -a g tv gitter
+abbr -a g 'cd (git_worktree_select (tv gitter))'
+
+# pnpm
+set -gx PNPM_HOME "/Users/markjarjour/Library/pnpm"
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end

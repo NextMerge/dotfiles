@@ -28,11 +28,6 @@ return {
             picker:close()
             vim.cmd('Gitsigns show ' .. currentCommit)
           end,
-          -- ['diffview'] = function(picker)
-          --   local currentCommit = picker:current().commit
-          --   picker:close()
-          --   vim.cmd('DiffviewOpen HEAD ' .. currentCommit)
-          -- end,
         },
         win = {
           input = {
@@ -55,6 +50,7 @@ return {
       return {
         dashboard = {
           preset = {
+            header = '',
             keys = {
               { icon = ' ', key = 'f', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
               { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
@@ -252,34 +248,6 @@ return {
     },
     triggers = {
       { '<auto>', mode = 'nixsotc' },
-    },
-  },
-  {
-    'nvim-mini/mini.surround',
-    opts = {
-      mappings = {
-        add = 'ys',
-        delete = 'ds',
-        find = '',
-        find_left = '',
-        highlight = '',
-        replace = 'cs',
-      },
-    },
-    keys = {
-      -- Remap adding surrounding to Visual mode selection
-      {
-        'S',
-        [[:<C-u>lua MiniSurround.add('visual')<CR>]],
-        mode = { 'x' },
-        silent = true,
-      },
-      {
-        'yss',
-        'ys_',
-        mode = 'n',
-        remap = true,
-      },
     },
   },
   {

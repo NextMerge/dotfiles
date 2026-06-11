@@ -25,6 +25,11 @@
       "bundleIdentifier" : "com.macpaw.CleanMyMac5",
       "iconPath" : "/Applications/CleanMyMac.app/Contents/Resources/AppIcon.icns",
       "name" : "CleanMyMac"
+    },
+    {
+      "bundleIdentifier" : "com.apple.systempreferences",
+      "iconPath" : "/System/Applications/System Settings.app/Contents/Resources/SystemSettings.icns",
+      "name" : "System Settings"
     }
   ],
   "focusDown" : "cmd+ctrl+opt+'",
