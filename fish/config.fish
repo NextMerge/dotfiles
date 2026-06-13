@@ -43,9 +43,9 @@ abbr -a dotdot --regex '^\.\.+$' --function multicd
 
 abbr -a n nvim
 abbr -a pn pnpm
-abbr -a por pnpm -F portal
-abbr -a som pnpm -F sombra
-abbr -a leg pnpm -F lego
+abbr --add p --command pnpm --position anywhere -- "-F portal"
+abbr --add s --command pnpm --position anywhere -- "-F sombra"
+abbr --add l --command pnpm --position anywhere -- "-F lego"
 abbr -a pnf pnpm -F
 abbr -a l 'eza -aF --icons --width=80'
 abbr -a tka 'tmux kill-server'
@@ -56,10 +56,3 @@ abbr -a cms 'chezmoi status'
 abbr -a cmd 'chezmoi diff'
 abbr -a oc opencode
 abbr -a g 'cd (git_worktree_select (tv gitter))'
-
-# pnpm
-set -gx PNPM_HOME "/Users/markjarjour/Library/pnpm"
-if not string match -q -- "$PNPM_HOME/bin" $PATH
-  set -gx PATH "$PNPM_HOME/bin" $PATH
-end
-# pnpm end
