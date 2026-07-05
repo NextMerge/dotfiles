@@ -84,9 +84,11 @@ return {
           },
           sources = {
             smart = {
-              multi = { 'buffers', 'recent', 'files', 'git_files' },
-              filter = { cwd = true },
+              filter = {
+                cwd = true,
+              },
             },
+            files = { hidden = true },
             help = {
               win = {
                 input = {

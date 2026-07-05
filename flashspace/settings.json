@@ -35,7 +35,7 @@
   "focusDown" : "cmd+ctrl+opt+'",
   "focusFrontmostWindow" : false,
   "focusLeft" : "cmd+ctrl+opt+j",
-  "focusNextWorkspaceApp" : "cmd+ctrl+opt+tab",
+  "focusNextWorkspaceWindow" : "cmd+ctrl+opt+tab",
   "focusRight" : "cmd+ctrl+opt+k",
   "focusUp" : "cmd+ctrl+opt+q",
   "keepUnassignedAppsOnSwitch" : false,
@@ -46,7 +46,11 @@
   "menuBarTitleTemplate" : "",
   "menuBarTitleUseScript" : false,
   "pipApps" : [
-
+    {
+      "bundleIdentifier" : "com.vivaldi.Vivaldi",
+      "name" : "Vivaldi",
+      "pipWindowTitleRegex" : "Meet -.*"
+    }
   ],
   "pipScreenCornerOffset" : 15,
   "restartAppOnWakeUp" : false,
