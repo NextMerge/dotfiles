@@ -54,5 +54,5 @@ abbr -a cm chezmoi
 abbr -a cma 'chezmoi apply'
 abbr -a cms 'chezmoi status'
 abbr -a cmd 'chezmoi diff'
-abbr -a oc opencode
 abbr -a g 'cd (git_worktree_select (tv gitter))'
+abbr -a az lazygit
