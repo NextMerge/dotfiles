@@ -10,7 +10,7 @@ function porci --description "Run CI pipeline for portal: ratchet:lint, oxlint, 
     echo "  🔍 Stage 1/5: Running Ratchet lint..."
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-    pnpm run lint:ratchet
+    pnpm --filter portal run lint:ratchet
     if test $status -ne 0
         echo ""
         echo "❌ Ratchet lint failed!"

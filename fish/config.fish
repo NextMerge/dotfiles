@@ -50,9 +50,11 @@ abbr -a pnf pnpm -F
 abbr -a l 'eza -aF --icons --width=80'
 abbr -a tka 'tmux kill-server'
 abbr -a top topgrade
+abbr -a ch 'cd (chezmoi source-path) && nvim'
 abbr -a cm chezmoi
 abbr -a cma 'chezmoi apply'
 abbr -a cms 'chezmoi status'
 abbr -a cmd 'chezmoi diff'
 abbr -a g 'cd (git_worktree_select (tv gitter))'
+abbr -a gn 'cd (git_worktree_select (tv gitter)) && nvim'
 abbr -a az lazygit
