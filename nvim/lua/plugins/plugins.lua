@@ -348,6 +348,18 @@ return {
     },
   },
   {
+    'neovim/nvim-lspconfig',
+    opts = {
+      inlay_hints = { enabled = false },
+      servers = {
+        oxlint = {
+          enabled = false,
+          mason = false,
+        },
+      },
+    },
+  },
+  {
     'catppuccin',
     -- opts = {
     --   transparent_background = true,
@@ -379,6 +391,9 @@ return {
 
         -- Whether to reindent new text to match previous indent
         reindent_linewise = true,
+      },
+      sort = {
+        prefix = '',
       },
     },
   },
