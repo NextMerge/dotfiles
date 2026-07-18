@@ -8,8 +8,9 @@ function vault-to-git --description "Backup Plexus vault to local git repo"
     end
 
     if test (count $argv) -gt 0; and test $argv[1] = "-n"
-        echo "dry run:"
-        /usr/bin/rsync -avni --delete --exclude='.git/' --filter='P .git/' $src $dst
+        echo (set_color magenta)"rsync only (no commit/push):"(set_color normal)
+        /usr/bin/rsync -av --delete --exclude='.git/' --filter='P .git/' $src $dst
+        echo (set_color yellow)"changes left unstaged in $dst -- review manually"(set_color normal)
         return
     end
 

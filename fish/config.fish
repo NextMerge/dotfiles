@@ -58,3 +58,5 @@ abbr -a cmd 'chezmoi diff'
 abbr -a g 'cd (git_worktree_select (tv gitter))'
 abbr -a gn 'cd (git_worktree_select (tv gitter)) && nvim'
 abbr -a az lazygit
+abbr -a vit "vault-to-icloud"
+abbr -a vig "vault-to-git"

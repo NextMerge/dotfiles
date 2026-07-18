@@ -4,7 +4,7 @@ requirements = ["fd", "git"]
 description = """
 A channel to select from git repositories on your local machine.
 
-Uses the `gitter` fish function to find regular and bare git repositories, with git log preview and cd action (worktree selection for bare repos).
+Uses the `repos` fish function to find regular and bare git repositories.
 """
 
 [source]
