@@ -30,6 +30,16 @@
       "bundleIdentifier" : "com.apple.systempreferences",
       "iconPath" : "/System/Applications/System Settings.app/Contents/Resources/SystemSettings.icns",
       "name" : "System Settings"
+    },
+    {
+      "bundleIdentifier" : "com.apple.finder",
+      "iconPath" : "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns",
+      "name" : "Finder"
+    },
+    {
+      "bundleIdentifier" : "com.hnc.Discord",
+      "iconPath" : "/Applications/Discord.app/Contents/Resources/electron.icns",
+      "name" : "Discord"
     }
   ],
   "focusDown" : "cmd+ctrl+opt+'",

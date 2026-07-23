@@ -27,6 +27,15 @@
       "skillFolderHash": "f7e9ebffd5608df6b3ab00e0b0375d693215a409",
       "installedAt": "2026-05-16T22:50:17.891Z",
       "updatedAt": "2026-05-16T22:50:17.891Z"
+    },
+    "tanstack-router": {
+      "source": "tanstack-skills/tanstack-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/tanstack-skills/tanstack-skills.git",
+      "skillPath": "plugins/tanstack-router/skills/tanstack-router/SKILL.md",
+      "skillFolderHash": "3b8331bcf3766835e37439290ba2fa843186f2d1",
+      "installedAt": "2026-07-23T19:27:49.661Z",
+      "updatedAt": "2026-07-23T19:27:49.661Z"
     }
   },
   "dismissed": {
@@ -35,16 +44,16 @@
   "lastSelectedAgents": [
     "amp",
     "antigravity",
+    "antigravity-cli",
     "cline",
     "codex",
     "cursor",
     "deepagents",
-    "dexto",
-    "firebender",
     "gemini-cli",
     "github-copilot",
-    "kimi-cli",
+    "kimi-code-cli",
     "opencode",
-    "warp"
+    "warp",
+    "zed"
   ]
 }
