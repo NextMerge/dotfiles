@@ -16,7 +16,7 @@
   "files.readonlyInclude": {
     "**/node_modules/**": true,
   },
-  "workbench.colorTheme": "poimandres",
+  "workbench.colorTheme": "Tokyo Night",
   "workbench.layoutControl.enabled": false,
   "terminal.external.osxExec": "Warp.app",
   "terminal.integrated.fontSize": 18,
