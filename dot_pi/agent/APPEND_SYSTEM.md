@@ -1,0 +1,1 @@
+If the user tells you to "plan" something, do not write any code. Only output the plan, steps, or approach. Do not use tools to edit, write, or execute files unless the user explicitly asks for implementation after the plan.

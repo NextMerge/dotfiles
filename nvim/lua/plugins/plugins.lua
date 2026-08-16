@@ -19,6 +19,9 @@ return {
         end,
         desc = 'Smart Find Files',
       },
+      -- Swap
+      { '<leader>sg', LazyVim.pick('live_grep', { root = false }), desc = 'Grep (cwd)' },
+      { '<leader>sG', LazyVim.pick('live_grep'), desc = 'Grep (Root Dir)' },
     },
     opts = function()
       local gitActions = {
@@ -118,6 +121,11 @@ return {
     opts = {
       label = {
         uppercase = false,
+      },
+      modes = {
+        char = {
+          enabled = false,
+        },
       },
     },
     keys = {
@@ -254,53 +262,6 @@ return {
     },
   },
   {
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      on_attach = function(buffer)
-        local gs = package.loaded.gitsigns
-
-        local function map(mode, l, r, desc)
-          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
-        end
-
-      -- stylua: ignore start
-      map("n", "]h", function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "]c", bang = true })
-        else
-          gs.nav_hunk("next")
-        end
-      end, "Next Hunk")
-      map("n", "[h", function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "[c", bang = true })
-        else
-          gs.nav_hunk("prev")
-        end
-      end, "Prev Hunk")
-      map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
-      map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
-      map("n", "dp", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-      map("n", "dP", gs.reset_buffer, "Reset Buffer")
-      map("n", "du", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-      map("n", "gb", function() gs.blame_line({ full = true }) end, "Blame Line")
-      map("n", "do", function()
-          for _, win in ipairs(vim.api.nvim_list_wins()) do
-            local buf = vim.api.nvim_win_get_buf(win)
-            local name = vim.api.nvim_buf_get_name(buf)
-
-            if vim.startswith(name, "gitsigns:") then
-                vim.api.nvim_win_close(win, true)
-                return
-            end
-          end
-          gs.diffthis()
-        end, "Diff This")
-      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-      end,
-    },
-  },
-  {
     'nvim-lualine/lualine.nvim',
     opts = function(_, opts)
       local currentSymbolIndex = 5
@@ -425,6 +386,26 @@ return {
           },
         },
       },
+    },
+  },
+  {
+    'nvim-mini/mini.bracketed',
+    version = false,
+    opts = {
+      conflict = { suffix = 'n' },
+      diagnostic = { suffix = '' },
+      buffer = { suffix = '' },
+      comment = { suffix = '' },
+      file = { suffix = '' },
+      indent = { suffix = '' },
+      jump = { suffix = '' },
+      location = { suffix = '' },
+      oldfile = { suffix = '' },
+      quickfix = { suffix = '' },
+      treesitter = { suffix = '' },
+      undo = { suffix = '' },
+      window = { suffix = '' },
+      yank = { suffix = '' },
     },
   },
 

@@ -40,6 +40,11 @@
       "bundleIdentifier" : "com.hnc.Discord",
       "iconPath" : "/Applications/Discord.app/Contents/Resources/electron.icns",
       "name" : "Discord"
+    },
+    {
+      "bundleIdentifier" : "com.apple.MobileSMS",
+      "iconPath" : "/System/Applications/Messages.app/Contents/Resources/AppIcon.icns",
+      "name" : "Messages"
     }
   ],
   "focusDown" : "cmd+ctrl+opt+'",
