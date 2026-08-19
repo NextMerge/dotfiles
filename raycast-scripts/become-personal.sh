@@ -12,16 +12,16 @@
 # @raycast.author NextMerge
 # @raycast.authorURL https://raycast.com/NextMerge
 
-open "raycast-x://extensions/raycast/window-management/layout-browse"
+open "raycast://extensions/raycast/window-management/layout-browse"
 sleep 0.5
 
-open "raycast-x://extensions/raycast/window-management/layout-code"
+open "raycast://extensions/raycast/window-management/layout-code"
 sleep 0.5
 
-open "raycast-x://extensions/raycast/window-management/layout-media"
+open "raycast://extensions/raycast/window-management/layout-media"
 sleep 0.5
 
-open "raycast-x://extensions/raycast/window-management/layout-writing"
+open "raycast://extensions/raycast/window-management/layout-writing"
 
 echo "Personal Layouts applied"
 

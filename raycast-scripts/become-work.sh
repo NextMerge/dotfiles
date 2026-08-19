@@ -13,13 +13,13 @@
 # @raycast.authorURL https://raycast.com/NextMerge
 
 # Run apply-layouts script command
-open "raycast-x://extensions/raycast/script-commands/become-personal"
+open "raycast://extensions/raycast/script-commands/become-personal"
 
 # Small delay to ensure first command processes
 sleep 0.5
 
 # Apply Work layout
-open "raycast-x://extensions/raycast/window-management/layout-work"
+open "raycast://extensions/raycast/window-management/layout-work"
 
 echo "Work layouts applied"
 
