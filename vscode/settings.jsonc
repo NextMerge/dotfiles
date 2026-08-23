@@ -4,6 +4,10 @@
   "window.newWindowDimensions": "inherit",
   "window.title": "${rootPath}${separator}",
   "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Tokyo Night",
+  "workbench.layoutControl.enabled": false,
+  "workbench.browser.showInTitleBar": false,
+  "workbench.activityBar.location": "bottom",
   "editor.fontSize": 18,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontWeight": 300,
@@ -14,19 +18,14 @@
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 200,
   "files.readonlyInclude": {
-    "**/node_modules/**": true,
+    "**/node_modules/**": true
   },
-  "workbench.colorTheme": "Tokyo Night",
-  "workbench.layoutControl.enabled": false,
+  "chat.titleBar.signIn.enabled": false,
+  "chat.titleBar.openInAgentsWindow.enabled": false,
   "terminal.external.osxExec": "Warp.app",
   "terminal.integrated.fontSize": 18,
   "extensions.ignoreRecommendations": true,
 
-  // Cursor
-  "cursor.composer.textSizeScale": 1.15,
-  "cursor.cpp.disabledLanguages": ["markdown"],
-  "cursor.composer.shouldChimeAfterChatFinishes": true,
-  "cursor.cpp.enablePartialAccepts": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.experimental.useTsgo": true,
   "[typescriptreact]": {
@@ -34,5 +33,5 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
-  },
+  }
 }
