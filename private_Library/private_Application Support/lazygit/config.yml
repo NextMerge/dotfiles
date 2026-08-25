@@ -1,4 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+promptToReturnFromSubprocess: false
+
 git:
   overrideGpg: true
 
@@ -26,3 +28,19 @@ customCommands:
     description: "View MR on GitLab"
     command: "glab mr view {{.SelectedLocalBranch.Name}} --web"
     loadingText: "Opening MR..."
+  - key: "o"
+    context: "localBranches"
+    description: "Create draft MR + review in tuicr"
+    prompts:
+      - type: "input"
+        title: "MR Title:"
+        key: "Title"
+        initialValue: "Draft: chore: "
+    command: >-
+      set num (glab mr create
+      --source-branch {{.SelectedLocalBranch.Name | quote}}
+      --title {{.Form.Title | quote}}
+      --push --yes |
+      grep -oE 'merge_requests/[0-9]+' | cut -d/ -f2);
+      test -n "$num"; and tuicr mr "$num"
+    output: terminal

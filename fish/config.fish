@@ -58,3 +58,4 @@ abbr -a cmd 'chezmoi diff'
 abbr -a g 'cd (git_worktree_select (tv git-repos))'
 abbr -a gn 'cd (git_worktree_select (tv git-repos)) && nvim'
 abbr -a az lazygit
+abbr -a oc opencode

@@ -2,7 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-
 -- The standard
 vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'Break out of insert mode' })
 
@@ -11,6 +10,7 @@ vim.keymap.set('n', '<C-left>', '<cmd>wincmd h<cr>', { desc = 'Go to the left wi
 vim.keymap.set('n', '<C-right>', '<cmd>wincmd l<cr>', { desc = 'Go to the right window' })
 vim.keymap.set('n', '<C-r>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
 vim.keymap.set('n', '<C-l>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
+vim.keymap.del('n', 'gc');
 
 -- Custom
 vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without yanking' })
@@ -55,13 +55,13 @@ vim.keymap.set({ 'n', 'x' }, '<leader>oc', function()
   local r, c = unpack(vim.api.nvim_win_get_cursor(0))
   local escaped_path = vim.fn.shellescape(vim.fn.expand('%:p'))
   vim.cmd(string.format(
-    'silent !cursor -r --folder-uri file://%s -g %s:%s:%s',
+    'silent !code -r --folder-uri file://%s -g %s:%s:%s',
     vim.fn.getcwd(),
     escaped_path,
     r,
     c + 1 -- Add 1 to convert from 0-indexed to 1-indexed
   ))
-end, { desc = '[O]pen in [C]ursor' })
+end, { desc = '[O]pen in VS[C]ode' })
 
 local function fast_quit()
   -- Check if we're in a file (not in a directory or empty buffer)

@@ -33,5 +33,6 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
-  }
+  },
+  "workbench.secondarySideBar.defaultVisibility": "hidden"
 }

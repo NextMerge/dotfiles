@@ -8,16 +8,10 @@
   //     "prompt": {
   //       "session.interrupt": ["escape", "ctrl+c"]
   //     },
-  //     "input": {
-  //       "input.submit": "shift+return",
-  //       "input.newline": ["return", "shift+return", "ctrl+return", "ctrl+j"]
-  //     }
   //   }
   // }
   "keybinds": {
     "app_exit": "ctrl+d,<leader>q",
     "session_interrupt": "escape,ctrl+c",
-    "input_submit": "shift+return",
-    "input_newline": "return,ctrl+return,ctrl+j"
   }
 }
