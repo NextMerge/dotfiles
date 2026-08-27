@@ -5,6 +5,7 @@ if not status is-interactive
     return
 end
 
+source ~/.config/fish/env.fish
 fish_config theme choose catppuccin-mocha
 
 bind ctrl-. forward-token
@@ -31,7 +32,6 @@ abbr -a e 'eza -aF --icons --width=80'
 set -gx BAT_THEME "Catppuccin Mocha"
 # bat coloring for man pages
 set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-
 
 tv init fish | source
 zoxide init fish --cmd cd | source

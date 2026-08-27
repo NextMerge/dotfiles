@@ -395,7 +395,7 @@ return {
       conflict = { suffix = 'n' },
       diagnostic = { suffix = '' },
       buffer = { suffix = '' },
-      comment = { suffix = '' },
+      comment = { suffix = '/' },
       file = { suffix = '' },
       indent = { suffix = '' },
       jump = { suffix = '' },

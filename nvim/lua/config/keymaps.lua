@@ -10,7 +10,7 @@ vim.keymap.set('n', '<C-left>', '<cmd>wincmd h<cr>', { desc = 'Go to the left wi
 vim.keymap.set('n', '<C-right>', '<cmd>wincmd l<cr>', { desc = 'Go to the right window' })
 vim.keymap.set('n', '<C-r>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
 vim.keymap.set('n', '<C-l>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
-vim.keymap.del('n', 'gc');
+vim.keymap.del('n', 'gc')
 
 -- Custom
 vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without yanking' })
@@ -34,7 +34,13 @@ vim.keymap.set({ 'n', 'v' }, 'gl', '$')
 vim.keymap.set('n', '<leader>yf', '<cmd>let @+=expand("%:.")<CR>', { desc = 'Yank filepath' })
 vim.keymap.set('n', '<leader>yF', '<cmd>let @+=expand("%:p")<CR>', { desc = 'Yank absolute filepath' })
 vim.keymap.set('n', '<leader>yd', '<cmd>let @+=expand("%:.:h")<CR>', { desc = 'Yank directory' })
-vim.keymap.set('n', '<leader>yD', '<cmd>let @+=expand("%:p:h")<cr>', { desc = 'yank absolute directory' })
+vim.keymap.set('n', '<leader>yD', '<cmd>let @+=expand("%:p:h")<CR>', { desc = 'Yank absolute directory' })
+vim.keymap.set('n', '<leader>yl', function()
+  local filepath = vim.fn.expand('%:.')
+  local line = vim.fn.line('.')
+
+  vim.fn.setreg('+', filepath .. ':' .. line)
+end, { desc = 'Yank filepath with line number' })
 
 -- Smart line delete that won't write whitespace lines to the copy register
 _G.smart_delete_init = function()
