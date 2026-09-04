@@ -92,6 +92,7 @@ return {
               },
             },
             files = { hidden = true },
+            grep = { hidden = true },
             help = {
               win = {
                 input = {
@@ -371,22 +372,89 @@ return {
   },
   {
     'nvim-mini/mini.ai',
-    opts = {
-      custom_textobjects = {
-        -- JSX attributes
-        j = {
-          {
-            { '[%S^]%s+%w+=%b{}', '^.()%s+%w+={().*()}()' },
-            { '[%S^]%s+%w+=%b""', '^.()%s+%w+="().*()"()' },
-          },
-        },
+    opts = function(_, opts)
+      local ai = require('mini.ai')
+      local api = vim.api
+
+      local treesitter_attribute = ai.gen_spec.treesitter({
+        a = '@attribute.outer',
+        i = '@attribute.inner',
+      })
+
+      local function include_preceding_whitespace(spec)
+        return function(ai_type, id, search_opts)
+          local regions = spec(ai_type, id, search_opts)
+
+          if not regions or ai_type ~= 'a' then
+            return regions
+          end
+
+          for _, region in ipairs(regions) do
+            local line = region.from.line
+            local col = region.from.col
+            local current_line = api.nvim_buf_get_lines(0, line - 1, line, false)[1] or ''
+
+            -- Include whitespace immediately before an inline attribute.
+            local prefix = current_line:sub(1, col - 1)
+            local whitespace_start = prefix:find('%s*$')
+
+            if whitespace_start and whitespace_start < col then
+              region.from.col = whitespace_start
+            end
+
+            -- If the attribute starts after indentation, include the
+            -- preceding newline as well.
+            if region.from.col == 1 and line > 1 then
+              local previous_line = api.nvim_buf_get_lines(0, line - 2, line - 1, false)[1] or ''
+
+              region.from.line = line - 1
+              region.from.col = #previous_line + 1
+            end
+          end
+
+          return regions
+        end
+      end
+
+      opts.custom_textobjects = vim.tbl_deep_extend('force', opts.custom_textobjects or {}, {
+        j = include_preceding_whitespace(treesitter_attribute),
+        -- Tailwind class
         ['-'] = {
           {
-            '[%s"]()()[%w-:%[%]]+()%s?()"?',
+            -- Middle class:
+            -- i- = class
+            -- a- = class + trailing space
+            {
+              '[ \t][^%s"\'{}]+[ \t]+',
+              '^[ \t]+()()[^%s"\'{}]+()[ \t]+()$',
+            },
+
+            -- First class:
+            -- i- = class
+            -- a- = class + trailing space
+            {
+              '["\'][^%s"\'{}]+[ \t]+',
+              '^["\']()()[^%s"\'{}]+()[ \t]+()$',
+            },
+
+            -- Final class:
+            -- i- = class
+            -- a- = preceding space + class
+            {
+              '[ \t][^%s"\'{}]+',
+              '^()[ \t]()[^%s"\'{}]+()()$',
+            },
+
+            -- Only class:
+            -- i- and a- = class
+            {
+              '["\'][^%s"\'{}]+["\']',
+              '^["\']()()[^%s"\'{}]+()()["\']$',
+            },
           },
         },
-      },
-    },
+      })
+    end,
   },
   {
     'nvim-mini/mini.bracketed',

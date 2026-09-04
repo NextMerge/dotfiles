@@ -59,3 +59,10 @@ abbr -a g 'cd (git_worktree_select (tv git-repos))'
 abbr -a gn 'cd (git_worktree_select (tv git-repos)) && nvim'
 abbr -a az lazygit
 abbr -a oc opencode
+
+# pnpm
+set -gx PNPM_HOME '/Users/markjarjour/Library/pnpm'
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end
