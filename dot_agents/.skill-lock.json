@@ -24,9 +24,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills.git",
       "skillPath": "skills/clean-code/SKILL.md",
-      "skillFolderHash": "f7e9ebffd5608df6b3ab00e0b0375d693215a409",
+      "skillFolderHash": "076ec8b233256698f9a1ecd43111dd86a2d011a1",
       "installedAt": "2026-05-16T22:50:17.891Z",
-      "updatedAt": "2026-05-16T22:50:17.891Z"
+      "updatedAt": "2026-09-05T22:31:16.367Z"
     },
     "tanstack-router": {
       "source": "tanstack-skills/tanstack-skills",

@@ -22,3 +22,8 @@
     scale: 1; /* Undo the 125% UI zoom */
   }
 }
+
+/* Hide link tooltip */
+#webview-container ~ .StatusInfo {
+  display: none;
+}
