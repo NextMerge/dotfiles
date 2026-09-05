@@ -1,18 +1,14 @@
 {
 	"name": "Vimium C",
-	"@time": "4/27/2026, 11:45:24 AM",
-	"time": 1777304724672,
+	"@time": "9/5/2026, 6:16:51 PM",
+	"time": 1788646611769,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "mac",
-		"chromium": 146
+		"chromium": 152
 	},
 	"autoDarkMode": 1,
 	"exclusionRules": [
-		{
-			"passKeys": "/ ",
-			"pattern": ":https://app.fastmail.com/"
-		},
 		{
 			"passKeys": "",
 			"pattern": ":https://excalidraw.com/"
@@ -22,16 +18,20 @@
 			"pattern": ":https://www.youtube.com/watch"
 		},
 		{
-			"passKeys": "",
-			"pattern": ":https://typ.ing/"
-		},
-		{
 			"passKeys": "n ",
 			"pattern": "^https://gitlab.com/[^/]+/[^/]+/-/merge_requests"
 		},
 		{
 			"passKeys": "j k v ",
 			"pattern": "^https://gitlab.com/[^/]+/[^/]+/-/merge_requests/.*/diffs"
+		},
+		{
+			"passKeys": "N ",
+			"pattern": ":https://music.youtube.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://monkeytype.com/"
 		}
 	],
 	"keyLayout": 26,
@@ -114,21 +114,17 @@
 		"mapKey <B:n> <v-bStartPage>",
 		"",
 		"map s runKey expect={\"startPage\":\"<v-sStartPage>\"} keys=\"<v-s>\"",
-		"map <v-s> Vomnibar.activateHistoryInNewTab url=\"duckduckgo.com/?q=\\u0020\"",
-		"map <v-sStartPage> Vomnibar.activateHistory url=\"duckduckgo.com/?q=\\u0020\"",
+		"map <v-s> Vomnibar.activateHistoryInNewTab url=\"google.com/search?q=\\u0020\"",
+		"map <v-sStartPage> Vomnibar.activateHistory url=\"google.com/search?q=\\u0020\"",
 		"mapKey <S:n> <v-sStartPage>",
 		""
 	],
 	"linkHintCharacters": "aoeuhtnsqjkmwvz",
 	"newTabUrl": "https://dot-blank-pink.vercel.app/",
 	"searchEngines": [
-		"bi: https://www.bing.com/search?q=%s \\",
-		"  blank=https://www.bing.com/ Bing",
 		"g: https://www.google.com/search?q=%s \\",
 		"  www.google.com re=/^(?:\\.[a-z]{2,4})?\\/search\\b.*?[#&?]q=([^#&]*)/i \\",
 		"  blank=https://www.google.com/ Google",
-		"d: https://duckduckgo.com/?q=%s DuckDuckGo",
-		"",
 		"gm: https://www.google.com/maps?q=%s \\",
 		"  blank=https://www.google.com/maps Google Maps",
 		"y|yt: https://www.youtube.com/results?search_query=%s \\",
@@ -136,23 +132,16 @@
 		"ym: https://music.youtube.com/search?q=%s \\",
 		"  blank=https://music.youtube.com/ YouTube",
 		"w: https://en.wikipedia.org/w/index.php?search=%s Wikipedia",
-		"",
 		"az: https://www.amazon.ca/s?k=%s \\",
 		"  blank=https://www.amazon.ca/ Amazon",
-		"",
-		"\\:i: vimium://sed/s/^//,lower\\ $S re= Lower case",
-		"v.m|math: vimium://math\\ $S re= Calculate",
-		"v.p: vimium://parse\\ $S re= Redo Search",
 		"gh: https://github.com/search?q=$s \\",
 		"  blank=https://github.com/ GitHub Repo",
-		"js\\:|Js: javascript:\\ $S; JavaScript",
-		"",
 		"jw: https://www.justwatch.com/ca/search?q=%s",
 		"tv: https://tvtropes.org/pmwiki/search_result.php#gsc.tab=0&gsc.q=${s:%20}&gsc.sort= \\",
 		"  blank=https://tvtropes.org/ TV Tropes",
 		""
 	],
-	"searchUrl": "https://duckduckgo.com/?q=$s DuckDuckGo",
+	"searchUrl": "https://google.com/?q=$s Google",
 	"userDefinedCss": [
 		"/* #ui */",
 		"* {",
