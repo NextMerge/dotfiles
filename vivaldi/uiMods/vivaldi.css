@@ -12,6 +12,16 @@
   /* Remove padding from window */
   padding: 0;
 
+  #titlebar #pagetitle {
+    /* Undo UI Zoom on title bar */
+    scale: unset !important;
+  }
+
+  .auto-hide-wrapper.top {
+    top: 3px !important;
+    width: unset !important;
+  }
+
   &.mac {
 
     /*
