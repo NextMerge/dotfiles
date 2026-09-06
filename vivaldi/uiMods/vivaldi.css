@@ -12,12 +12,8 @@
   /* Remove padding from window */
   padding: 0;
 
-  /* Undo the 125% UI zoom */
-  #titlebar #pagetitle {
-    scale: 1;
-  }
-
   &.mac {
+
     /*
      * Originally var(--radiusWindow), which causes white corners
      * on the window on dark backgrounds.
@@ -31,4 +27,16 @@
 /* Hide link tooltip */
 #webview-container~.StatusInfo {
   display: none;
+}
+
+/* Center extensions popup */
+.extension-popup.top {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  /* Arrow pointing to address bar */
+  &::before, &::after {
+    display: none !important;
+  }
 }
