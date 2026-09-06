@@ -8,22 +8,27 @@
 /*   display: none; */
 /* } */
 
-/* Remove padding from window */
-#browser.auto-hide.unified-ui.mac {
+#browser.auto-hide.unified-ui {
+  /* Remove padding from window */
   padding: 0;
 
-  #webpage-stack:after {
-    --mask-box-radius: var(--radius) !important; /* Originally var(--radiusWindow)
-                                                  which causes white corners on the
-                                                  window on dark backgrounds */
+  /* Undo the 125% UI zoom */
+  #titlebar #pagetitle {
+    scale: 1;
   }
 
-  #titlebar #pagetitle {
-    scale: 1; /* Undo the 125% UI zoom */
+  &.mac {
+    /*
+     * Originally var(--radiusWindow), which causes white corners
+     * on the window on dark backgrounds.
+     */
+    #webpage-stack:after {
+      --mask-box-radius: var(--radius) !important;
+    }
   }
 }
 
 /* Hide link tooltip */
-#webview-container ~ .StatusInfo {
+#webview-container~.StatusInfo {
   display: none;
 }
