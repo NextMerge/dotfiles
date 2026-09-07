@@ -38,5 +38,8 @@
   "[jsonc]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
-  "chat.disableAIFeatures": true
+  "chat.disableAIFeatures": true,
+  "[css]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  }
 }

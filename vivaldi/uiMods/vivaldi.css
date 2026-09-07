@@ -12,30 +12,16 @@
   /* Remove padding from window */
   padding: 0;
 
-  #titlebar #pagetitle {
-    /* Undo UI Zoom on title bar */
-    scale: unset !important;
-  }
-
-  .auto-hide-wrapper.top {
-    top: 3px !important;
-    width: unset !important;
-  }
-
   &.mac {
-
-    /*
-     * Originally var(--radiusWindow), which causes white corners
-     * on the window on dark backgrounds.
-     */
+    /* Disable border rounding */
     #webpage-stack:after {
-      --mask-box-radius: var(--radius) !important;
+      --mask-box-radius: 0px !important;
     }
   }
 }
 
 /* Hide link tooltip */
-#webview-container~.StatusInfo {
+#webview-container ~ .StatusInfo {
   display: none;
 }
 
@@ -46,7 +32,8 @@
   transform: translate(-50%, -50%) !important;
 
   /* Arrow pointing to address bar */
-  &::before, &::after {
+  &::before,
+  &::after {
     display: none !important;
   }
 }
