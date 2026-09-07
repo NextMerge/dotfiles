@@ -12,11 +12,9 @@
   /* Remove padding from window */
   padding: 0;
 
-  &.mac {
-    /* Disable border rounding */
-    #webpage-stack:after {
-      --mask-box-radius: 0px !important;
-    }
+  /* Disable border rounding on window */
+  #webpage-stack:after {
+    --mask-box-radius: 0px !important;
   }
 }
 
