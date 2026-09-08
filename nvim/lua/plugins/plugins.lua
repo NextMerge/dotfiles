@@ -31,6 +31,19 @@ return {
             picker:close()
             vim.cmd('Gitsigns show ' .. currentCommit)
           end,
+          ['open_remote'] = function(picker)
+            local currentCommit = picker:current().commit
+            picker:close()
+            local remote = vim.fn.system('git remote get-url origin'):gsub('\n', '')
+            remote = remote:gsub('git@([^:]+):', 'https://%1/')
+            remote = remote:gsub('%.git$', '')
+            vim.ui.open(remote .. '/commit/' .. currentCommit)
+          end,
+          ['diff'] = function(picker)
+            local currentCommit = picker:current().commit
+            picker:close()
+            vim.cmd('Gitsigns diffthis ' .. currentCommit)
+          end,
         },
         win = {
           input = {
@@ -41,8 +54,28 @@ return {
                 mode = { 'n', 'i' },
               },
               ['<c-d>'] = {
-                'diffview',
-                desc = 'Diffview',
+                'diff',
+                desc = 'Diff',
+                mode = { 'n', 'i' },
+              },
+            },
+          },
+        },
+      }
+
+      local gitLogLineActions = {
+        actions = gitActions.actions,
+        win = {
+          input = {
+            keys = {
+              ['<CR>'] = {
+                'open_remote',
+                desc = 'Open Remote',
+                mode = { 'n', 'i' },
+              },
+              ['<c-d>'] = {
+                'diff',
+                desc = 'Diff',
                 mode = { 'n', 'i' },
               },
             },
@@ -104,6 +137,7 @@ return {
             },
             git_log = gitActions,
             git_log_file = gitActions,
+            git_log_line = gitLogLineActions,
           },
         },
         scratch = {
@@ -329,10 +363,77 @@ return {
     },
   },
   {
-    'catppuccin',
-    -- opts = {
-    --   transparent_background = true,
-    -- },
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      on_attach = function(buffer)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
+        end
+
+        map('n', ']h', function()
+          if vim.wo.diff then
+            vim.cmd.normal({ ']c', bang = true })
+          else
+            gs.nav_hunk('next')
+          end
+        end, 'Next Hunk')
+        map('n', '[h', function()
+          if vim.wo.diff then
+            vim.cmd.normal({ '[c', bang = true })
+          else
+            gs.nav_hunk('prev')
+          end
+        end, 'Prev Hunk')
+        map('n', ']H', function()
+          gs.nav_hunk('last')
+        end, 'Last Hunk')
+        map('n', '[H', function()
+          gs.nav_hunk('first')
+        end, 'First Hunk')
+        map({ 'n', 'x' }, '<leader>ghs', ':Gitsigns stage_hunk<CR>', 'Stage Hunk')
+        map({ 'n', 'x' }, '<leader>ghr', ':Gitsigns reset_hunk<CR>', 'Reset Hunk')
+        map('n', '<leader>ghS', gs.stage_buffer, 'Stage Buffer')
+        map('n', '<leader>ghu', gs.undo_stage_hunk, 'Undo Stage Hunk')
+        map('n', '<leader>ghR', gs.reset_buffer, 'Reset Buffer')
+        map('n', '<leader>ghp', gs.preview_hunk_inline, 'Preview Hunk Inline')
+        map('n', '<leader>ghb', function()
+          gs.blame_line({ full = true })
+        end, 'Blame Line')
+        map('n', '<leader>ghB', function()
+          gs.blame()
+        end, 'Blame Buffer')
+        map('n', '<leader>ghd', function()
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            if vim.startswith(vim.api.nvim_buf_get_name(buf), 'gitsigns:') then
+              vim.api.nvim_win_close(win, true)
+              return
+            end
+          end
+          gs.diffthis()
+        end, 'Diff This')
+        map('n', '<leader>ghD', function()
+          gs.diffthis('~')
+        end, 'Diff This ~')
+        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', 'GitSigns Select Hunk')
+      end,
+    },
+  },
+  {
+    'nvim-mini/mini.surround',
+    opts = {
+      custom_surroundings = {
+        -- `sap` (or visual `S` then `p`) prompts for a name, wraps as `name: { ... }`
+        p = {
+          output = function()
+            local name = require('mini.surround').user_input('Prop name')
+            return { left = name .. ': { ', right = ' }' }
+          end,
+        },
+      },
+    },
   },
   {
     'akinsho/bufferline.nvim',
