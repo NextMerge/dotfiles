@@ -4,9 +4,9 @@
 }
 
 /* hide text on update status toolbar button since the tab bar is small */
-/* div.toolbar button[data-name="UpdateButton"] .button-title { */
-/*   display: none; */
-/* } */
+div.toolbar button[data-name="UpdateButton"] .button-title {
+  display: none;
+}
 
 #browser.auto-hide.unified-ui {
   /* Remove padding from window */

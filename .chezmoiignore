@@ -2,8 +2,6 @@ README.md
 **/*~
 **/.DS_Store
 
-dot_agents/.skill-lock.json
-
 vscode/
 raycast-scripts/
 zed/
