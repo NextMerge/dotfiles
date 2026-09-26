@@ -1,3 +1,5 @@
+Replaced with a private repo managed by [mise dotfiles](https://mise.jdx.dev/dotfiles.html).
+
 # dotfiles
 
 Original idea.
